@@ -15,12 +15,12 @@ truth_bias   Truth-and-bias decomposition of perceived care.
 inference    Inferring how much a giver values the receiver from costly choices.
 trust        Trust as a latent state; equilibria and the bistability condition.
 lag          Developmental lag in a giver's model of a changing need.
-constraints  Safety as a lexicographic gate; compatibility as a feasible set.
+constraints  Safety as an admissibility constraint; compatibility as a feasible set.
 """
 
 from . import constraints, detection, fit, inference, lag, linalg, similarity, trust, truth_bias
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 __all__ = [
     "constraints",
