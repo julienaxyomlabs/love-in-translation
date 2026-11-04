@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this work, please cite it as below."
 title: "love-in-translation: a falsification-first evidence review and formal model of how care moves between people"
 type: software
-version: 0.1.0
+version: 0.2.0
 date-released: 2026-11-04
 authors:
   - family-names: Poulain
