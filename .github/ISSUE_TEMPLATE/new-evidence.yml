@@ -1,0 +1,55 @@
+name: New evidence
+description: Propose a study, meta-analysis or dataset the paper should weigh.
+title: "[evidence] "
+labels: ["evidence"]
+body:
+  - type: input
+    id: citation
+    attributes:
+      label: Citation with DOI or stable URL
+      placeholder: "Author, A. (2026). Title. Journal. https://doi.org/10...."
+    validations:
+      required: true
+  - type: dropdown
+    id: design
+    attributes:
+      label: Design
+      options:
+        - Meta-analysis or systematic review
+        - Randomised or experimental
+        - Longitudinal or diary
+        - Cross-sectional
+        - Qualitative
+        - Official statistics
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: sample
+    attributes:
+      label: Sample (N, population, country)
+    validations:
+      required: true
+  - type: textarea
+    id: finding
+    attributes:
+      label: What it measured and what it found
+      description: Keep what was measured separate from what the authors inferred. Include effect sizes.
+    validations:
+      required: true
+  - type: textarea
+    id: bearing
+    attributes:
+      label: Which claim it affects, and how
+      description: Claim id or chapter, and whether it supports, weakens or contradicts it.
+    validations:
+      required: true
+  - type: dropdown
+    id: grade
+    attributes:
+      label: Suggested grade for the new evidence
+      options:
+        - Established
+        - Moderate/mixed
+        - Preliminary
+        - Theoretical

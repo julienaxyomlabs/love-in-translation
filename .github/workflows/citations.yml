@@ -1,0 +1,27 @@
+name: citations
+
+# Re-resolve every DOI in the paper against Crossref once a month, or on demand.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 6 1 * *"
+
+permissions:
+  contents: read
+
+jobs:
+  resolve-dois:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Resolve DOIs and compare registered metadata
+        run: python tools/check_dois.py --write evidence/doi-verification.csv
+      - name: Upload verification table
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: doi-verification
+          path: evidence/doi-verification.csv

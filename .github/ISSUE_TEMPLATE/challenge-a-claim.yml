@@ -1,0 +1,50 @@
+name: Challenge a claim
+description: Dispute a finding, a grade, a citation or a step in the reasoning.
+title: "[challenge] "
+labels: ["challenge"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This project exists to be falsified. Point to the exact claim and bring evidence with a DOI or a stable link.
+  - type: input
+    id: location
+    attributes:
+      label: Where is the claim?
+      description: Chapter file and heading, or a claim id from evidence/claims.jsonl.
+      placeholder: "paper/05-evidence-against-it.md, or claim 05.004"
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: The claim as written
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is wrong?
+      options:
+        - Evidence contradicts it
+        - Grade is too strong
+        - Grade is too weak
+        - Citation is wrong or does not support it
+        - What was measured is confused with what was inferred
+        - Mathematical or logical error
+        - Cultural overgeneralisation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Counter-evidence
+      description: For each study give the DOI or stable URL, design, N and population.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: New wording, new grade, or the analysis that would settle it.
