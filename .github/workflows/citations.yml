@@ -21,7 +21,7 @@ jobs:
         run: python tools/check_dois.py --write evidence/doi-verification.csv
       - name: Upload verification table
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: doi-verification
           path: evidence/doi-verification.csv
