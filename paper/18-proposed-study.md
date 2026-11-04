@@ -23,7 +23,7 @@ Sampling is stratified on four variables:
 | **H7 Filial-piety marker.** Low perceived regard from a parent predicts lower reciprocal but not authoritarian filial piety toward that parent | Both forms track general relationship quality | Both forms decline equally |
 | **H8 Causal match versus amount (micro-randomized trial).** Prompts in the child's stated preferred channel raise evening perceived care more than equally intense prompts in other channels | Only intensity (amount) matters | The match effect falls inside the smallest effect of interest while the intensity effect is clear |
 
-A further exploratory aim tests the **safety gate**. Below a safety threshold, care measures should stop predicting well-being. It is exploratory because of the ethical constraints below.
+A further exploratory aim tests **whether care compensates for danger**. If it does not, care measures should stop predicting well-being below a safety threshold. The study can inform, but not settle, the normative decision to exclude unsafe arrangements, which the model makes regardless. It is exploratory because of the ethical constraints below.
 
 ## Measures and observations
 

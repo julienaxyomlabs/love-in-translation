@@ -1,5 +1,88 @@
 # 8. A mathematically rigorous representation, with explicit assumptions
 
+## Model at a glance
+
+> **Status: a structural hypothesis, not a validated model.** Every parameter below is unknown and nothing has been estimated. The unit tests check that the code implements these equations and reproduces published worked examples; they do not show that any mechanism is true. Resolving all cited DOIs shows the references point to the right works, not that each work supports every claim attributed to it.
+
+![The model at a glance: ten components, two routes, compatibility and safety](figures/model-at-a-glance.png)
+
+The model runs in both directions at once (swap A and B). For care from A to B at occasion $`t`$:
+
+```math
+\begin{aligned}
+&\text{(1) Enactment}     && E_{A\to B}(t) = g\big(I_{A\to B}(t),\ \tilde N_{A\to B}(t)\big), \quad E_{A\to B}(t)\in\mathcal C_A(t)\\
+&\text{(2) Detection}     && \Pr\big(D_{B,k}(t)=1\big) = \Phi\big(-c_B + d'_B\,\mathbf 1[E_{A\to B,k}(t)>0] + \gamma\,v_k\big)\\
+&\text{(3) Construal}     && Q_B(t)-\mu = \tau\,\big(X_A(t)-\mu\big) + \pi\,\big(O_B(t)-\mu\big) + \delta\big(T_B(t)\big) + u_B(t)\\
+&\text{(4) Motive}        && \Pr(w\mid \text{act}) \propto \Pr(w)\,\sigma\big(\beta\,(w\,b-\hat c)\big)\\
+&\text{(5) Fit}           && \mathbf S_B(t) = \boldsymbol\Lambda\,\mathbf E_{A\to B}(t), \qquad h(S,N) = b_0+b_1S+b_2N+b_3S^2+b_4SN+b_5N^2\\
+&\text{(6) Two routes}    && \mathbf Y_B(t) = \boldsymbol\alpha + \boldsymbol\beta_{\text{sub}}\,h\big(S_B(t),N_B(t)\big) + \boldsymbol\beta_{\text{sym}}\,Q_B(t) + \boldsymbol\Gamma\,\mathbf x(t) + \mathbf e(t)\\
+&\text{(7) Trust}         && T_B(t+1) = T_B(t) + \eta\,\big[p\big(Q_B(t),T_B(t)\big)-T_B(t)\big] + \varepsilon(t)\\
+&\text{(8) Giver's model} && \tilde N_{A\to B}(t+1) = \tilde N_{A\to B}(t) + \lambda(t)\,\big[N_B(t)-\tilde N_{A\to B}(t)\big] + \xi(t)\\
+&\text{(9) Compatibility} && \mathcal F = \big\{x\in\mathcal C_A\times\mathcal C_B : G_A(x)\ge 0,\ G_B(x)\ge 0,\ W_A(x)\ge w_A^{\min},\ W_B(x)\ge w_B^{\min}\big\}\\
+&\text{(10) Safety}       && \mathcal F_{\text{safe}} = \{x\in\mathcal F : \mathrm{Safe}(x)=1\}; \ \text{outcomes are compared only within } \mathcal F_{\text{safe}}
+\end{aligned}
+```
+
+### What each equation says, and how well it is supported
+
+The columns keep three things apart: the statistical method (is the tool standard?), the psychological evidence (is the mechanism observed?), and what is original to this project (untested).
+
+| # | In words | Statistical method | Psychological evidence | Original to this project | Details |
+|---|---|---|---|---|---|
+| 1 | A acts on intention and on A's picture of B's needs, but only within what A can actually do. | none needed: a constraint | Stress limits acting on needs that were noticed ([Neff, Nguyen & Williamson 2021](https://doi.org/10.1177/0146167220974490)) [Moderate/mixed] | Constraint form [Assumption] | [§8.4](#84-component-1-enactment-under-capacity) |
+| 2 | Whether B registers an act depends on B's sensitivity and threshold, and on how visible the act is. | Signal detection as a mixed-effects probit ([DeCarlo 1998](https://doi.org/10.1037/1082-989X.3.2.186)) [Established method] | About half of sacrifices go unnoticed ([Visserman et al. 2019](https://doi.org/10.1177/1948550618757599)) [Moderate/mixed] | Visibility term $`\gamma v_k`$ [Our hypothesis] | [§8.5](#85-component-2-detection) |
+| 3 | Perceived care tracks what A did ($`\tau`$), projects B's own care ($`\pi`$) and is shifted by a level bias ($`\delta`$). | Truth-and-bias model ([West & Kenny 2011](https://doi.org/10.1037/a0022936)) [Established method] | Projection ([Lemay, Clark & Feeney 2007](https://doi.org/10.1037/0022-3514.92.5.834)) [Moderate]; partners are accurate and positively biased at once ([Fletcher & Kerr 2010](https://doi.org/10.1037/a0019792)) [Established] | Bias that depends on trust, $`\delta(T)`$ [Our hypothesis] | [§8.6](#86-component-3-construal-and-motive-inference) |
+| 4 | B infers how much A values B from what B believes the act cost A. | Bayesian inverse planning ([Jara-Ettinger et al. 2016](https://doi.org/10.1016/j.tics.2016.05.011)) [Established in laboratory cognition] | Value inferred from cost in laboratory tasks, including infants ([Liu et al. 2017](https://doi.org/10.1126/science.aag2132)) [Moderate, laboratory only] | Application to care; visibility of cost [Our hypothesis] | [§8.6](#86-component-3-construal-and-motive-inference) |
+| 5 | Acts become supply on the need's own scale; the outcome is a surface over supply and need, read along $`S=N`$ and $`S=-N`$ around a shared centring point. | Polynomial regression with response surface analysis ([Edwards 2007](https://tarheels.live/jeffreyedwardswebsite/wp-content/uploads/sites/5503/2024/03/Edwards2007.pdf); [Schönbrodt, Humberg & Nestler 2018](https://doi.org/10.1002/per.2169)) [Established method] | Both under- and over-provision of support matter ([Brock & Lawrence 2009](https://doi.org/10.1037/a0015402)) [Moderate/mixed]; no care-channel surface published | Translation matrix $`\boldsymbol\Lambda`$ [Assumption] | [§8.7](#87-component-4-need-fulfilment-and-fit) |
+| 6 | Every act can work through two routes at once: changing B's circumstances and needs (substantive) and being read as regard (symbolic). | Mediation decomposition; needs independent or randomised enactment ([Rohrer et al. 2022](https://doi.org/10.1177/25152459221095827)) [Established method, strong assumptions] | Unnoticed support helps ([Bolger, Zuckerman & Kessler 2000](https://doi.org/10.1037/0022-3514.79.6.953)) [Moderate/mixed]; income improves children's outcomes ([Cooper & Stewart 2021](https://doi.org/10.1007/s12187-020-09782-0)) [Moderate to Established] | Route split and outcome signatures [Our hypothesis] | [§8.8](#88-component-5-the-two-routes-our-hypothesis) |
+| 7 | Trust moves toward what B currently perceives, and colours how the next act is read. | Latent state-space model ([Song & Ferrer 2009](https://doi.org/10.1080/10705510902751432)) [Established method] | Trust acts as outcome, mediator and moderator ([Wieselquist et al. 1999](https://doi.org/10.1037/0022-3514.77.5.942); [Campbell et al. 2010](https://doi.org/10.1037/a0019714)) [Moderate/mixed] | Reading function $`p(\cdot)`$; any bistability [Theoretical] | [§8.9](#89-component-6-dynamics) |
+| 8 | A's picture of B's needs catches up at a rate $`\lambda`$ set by contact and disclosure; under steady change it lags by $`e^*=r/\lambda`$. | Error-correction learning [Established mathematics] | Fast change in adolescent autonomy needs ([Hadiwijaya et al. 2017](https://doi.org/10.1007/s10964-016-0627-7)) [indirect] | The lag model [Our hypothesis] | [§8.9](#89-component-6-dynamics) |
+| 9 | A shared life is possible only if some arrangement meets both people's essentials without pushing either below a sustainability threshold. | Set definition | Goal conflict lowers quality regardless of understanding ([Gere & Schimmack 2013](https://doi.org/10.1007/s10902-011-9314-2)) [Moderate/mixed] | Feasibility formalisation [Our hypothesis] | [§8.10](#810-component-7-constraints-that-are-not-weights) |
+| 10 | Unsafe arrangements are excluded before anything is compared; if none is safe, the model recommends nothing. Perceived love never enters $`\mathrm{Safe}(x)`$. | Constrained choice over $`\mathcal F_{\text{safe}}`$; no weighted sum can exclude ([Fishburn 1974](https://doi.org/10.1287/mnsc.20.11.1442)) [Established mathematics] | Felt love and commitment can rise as safety falls ([Arriaga, Capezza & Daly 2016](https://doi.org/10.1037/pspi0000035)); harms appear on dimensions separate from love ratings ([Lohmann et al. 2024](https://doi.org/10.1177/15248380231162972)) [Moderate/mixed] | Admissibility rule and its threshold [Our hypothesis; partly normative] | [§8.10](#810-component-7-constraints-that-are-not-weights) |
+
+Reading the fit surface (5) needs care: $`a_1=b_1+b_2`$ is the slope along $`S=N`$ **at the centring point only**, and a negative $`a_4=b_3-b_4+b_5`$ is **not by itself** a mismatch penalty. A congruence effect needs the joint pattern $`a_4<0`$, $`a_3=0`$ and a first principal axis on $`S=N`$, with confidence intervals and model comparison ([§8.7](#87-component-4-need-fulfilment-and-fit)).
+
+### Variables: definitions, units and domains
+
+| Symbol | Meaning | Unit or scale | Domain |
+|---|---|---|---|
+| $`t`$; $`k`$ | occasion (diary day or panel wave); care channel (presence, talk, touch, practical help, money, …) | time step; index | $`t\in\mathbb N`$; $`k=1,\dots,K`$ |
+| $`I_{A\to B}`$ | A's intention to care, by channel | self-report rating | latent, $`\ge 0`$ |
+| $`\mathcal C_A(t)`$ | what A can feasibly enact (time, money, energy, stress) | channel units | subset of $`\mathbb R_{\ge0}^K`$ |
+| $`E_{A\to B,k}(t)`$ | care A enacts in channel $`k`$ | minutes, currency, counts | $`\ge 0`$ |
+| $`D_{B,k}(t)`$ | B registers that an act occurred | indicator | $`\{0,1\}`$ |
+| $`d'_B,\ c_B`$ | B's detection sensitivity and criterion | z units | $`\mathbb R`$ |
+| $`v_k,\ \gamma`$ | visibility of an act and of its cost; its effect on detection | proportion or design indicator; z units per unit of $`v`$ | $`v_k\in[0,1]`$; $`\gamma\in\mathbb R`$ |
+| $`Q_B(t)`$ | B's perceived regard: feeling understood, valued, cared for | rating-scale score | bounded scale, treated as interval |
+| $`X_A(t),\ O_B(t),\ \mu`$ | criterion for A's care (A's report or observer coding); B's own care given; criterion mean | same scale as $`Q`$ | same as $`Q`$ |
+| $`\tau,\ \pi`$ | truth force and projection force | dimensionless weights | $`\mathbb R`$, typically 0 to 1 |
+| $`\delta(T)`$ | directional (level) bias, possibly dependent on trust | scale units of $`Q`$ | $`\mathbb R`$ |
+| $`w`$ | the weight A places on B's welfare, as B infers it | utility weight | $`[0,1]`$ in the reference code |
+| $`b,\ \hat c,\ \beta`$ | benefit of the act to B; cost B believes A paid; choice precision in B's model of A | utility units; 1/utility units for $`\beta`$ | $`b,\hat c\ge 0`$; $`\beta>0`$ |
+| $`N_{B,k}(t),\ S_{B,k}(t)`$ | B's need and the supply B received in channel $`k`$ | one shared need metric, centred at the scale midpoint | bounded scale |
+| $`\boldsymbol\Lambda`$ | translation from acts (channel units) to supply (need metric) | need units per channel unit | $`K\times K`$ matrix |
+| $`b_0,\dots,b_5`$; $`a_1,\dots,a_5`$; $`p_{10},p_{11}`$ | polynomial coefficients; surface quantities at the centring point; first principal axis | outcome units per centred scale unit (and squares) | $`\mathbb R`$ |
+| $`\mathbf Y_B(t)`$ | B's outcomes (well-being, satisfaction, …), each on its own instrument | instrument units | $`\mathbb R^m`$ |
+| $`\boldsymbol\beta_{\text{sub}},\ \boldsymbol\beta_{\text{sym}},\ \boldsymbol\Gamma,\ \mathbf x(t)`$ | effects of the two routes on each outcome; covariates and their coefficients | outcome units per unit of $`h`$ or $`Q`$ | $`\mathbb R^m`$ |
+| $`T_B(t),\ \eta,\ p(\cdot)`$ | B's trust in A, normalised; updating rate; trust-dependent reading of perceived regard | proportion of scale range; per step | $`T\in[0,1]`$; $`\eta\in(0,1]`$; $`p:[0,1]\to[0,1]`$ |
+| $`\tilde N_{A\to B}(t),\ \lambda(t),\ r`$ | A's model of B's need; its learning rate; drift rate of B's need | need units; per step; need units per step | bounded scale; $`\lambda\in(0,1]`$; $`r\in\mathbb R`$ |
+| $`G_A(x),\ G_B(x)`$ | margins on each person's essential requirements under arrangement $`x`$ | requirement-specific | $`\ge 0`$ means met |
+| $`W_A(x),\ W_B(x);\ w^{\min}`$ | each person's well-being under $`x`$; sustainability thresholds | well-being scale units | $`\mathbb R`$ |
+| $`\mathrm{Safe}(x)`$ | $`x`$ passes the safety criterion on validated indicators (violence, threats, coercive control, fear-based compliance) | indicator | $`\{0,1\}`$ |
+| $`\mathcal F,\ \mathcal F_{\text{safe}}`$ | feasible joint arrangements; the safe subset | sets of arrangements | possibly empty |
+
+### Assumptions and what can be identified
+
+- $`S`$ and $`N`$ must be commensurable and centred on a shared zero; otherwise the surface quantities in (5) say nothing about fit.
+- $`X`$ is another report, not the truth. $`\tau`$, $`\pi`$ and $`\delta`$ need repeated judgments plus a criterion on the same metric.
+- $`d'`$ and $`c`$ describe disagreement between two reports unless an observer or an experiment supplies the criterion.
+- $`\boldsymbol\beta_{\text{sub}}`$ and $`\boldsymbol\beta_{\text{sym}}`$ need enactment measured independently of the receiver, ideally randomised; observational mediation also needs no unmeasured mediator–outcome confounding.
+- $`\boldsymbol\Lambda`$ has $`K^2`$ parameters and cannot be identified for a single dyad; it needs pooling with structure or randomised channels.
+- $`\lambda`$ needs long paired series of A's predictions against B's reports. No such study exists.
+- $`p(\cdot)`$ and any bistability are practically unidentifiable, and no study has shown bistability in relationships.
+- $`\mathrm{Safe}(x)`$ uses a normative threshold. Data can show whether care compensates for danger, not where the line must be.
+- The equations are explanatory hypotheses. Predictive value would have to be shown out of sample, beyond the perceptions that already predict relationship quality.
+
 ## 8.1 Design rules
 
 The mathematics below obeys six rules:
@@ -34,7 +117,7 @@ The equations are hypotheses about structure. They are not validated psychologic
 | $`\mathcal{F}`$ | Set of joint life patterns meeting both people's essential requirements | Latent | Goal conflict, dealbreakers | [Our hypothesis] |
 | $`\tau, \pi, \delta`$ | Truth force, projection force, directional bias | Parameters | Truth-and-bias model | Established method |
 | $`d'_j, c_j`$ | Detection sensitivity and criterion | Parameters | Mixed-effects probit | Established method |
-| $`b_0,\dots,b_5`$; $`a_1,\dots,a_4`$ | Polynomial and response-surface coefficients | Parameters | Response surface analysis (RSA) | Established method |
+| $`b_0,\dots,b_5`$; $`a_1,\dots,a_5`$; $`p_{10}, p_{11}`$ | Polynomial coefficients; response-surface quantities relative to the centring point; first principal axis | Parameters | Response surface analysis (RSA) | Established method |
 | $`\beta_{\text{sub}}, \beta_{\text{sym}}`$ | Weights of the substantive and symbolic routes | Parameters | Requires independent or randomized enactment | [Our hypothesis] |
 | $`\lambda`$, $`\eta`$, $`p(\cdot)`$ | Learning rate of the giver's need model; trust updating rate; trust-dependent interpretation function | Parameters | Long paired series | [Our hypothesis] / [Theoretical] |
 
@@ -116,15 +199,20 @@ For each channel, or for a justified aggregate, model the receiver's outcome wit
 Y = b_0 + b_1 S + b_2 N + b_3 S^2 + b_4 S N + b_5 N^2 + e.
 ```
 
-Four surface quantities interpret this equation ([Shanock et al. 2010](https://doi.org/10.1007/s10869-010-9183-4)):
-- $`a_1 = b_1 + b_2`$ is the slope along the line of congruence ($`S = N`$), the **level or amount** effect;
-- $`a_2 = b_3 + b_4 + b_5`$ is the curvature along that line;
-- $`a_3 = b_1 - b_2`$ is directional misfit, distinguishing over-supply from under-supply;
-- $`a_4 = b_3 - b_4 + b_5`$ is the curvature across the line of incongruence, the classic "**mismatch hurts**" term.
+**Preconditions.** $`S`$ and $`N`$ must be *commensurable*: the same construct on the same metric, with measurement invariance wherever groups or partners are compared ([Schönbrodt, Humberg & Nestler 2018](https://doi.org/10.1002/per.2169)). Both are centred on the same meaningful zero, conventionally the scale midpoint; only under that common centring does the line $`S = -N`$ represent misfit ([Edwards 2007](https://tarheels.live/jeffreyedwardswebsite/wp-content/uploads/sites/5503/2024/03/Edwards2007.pdf)) [Established method].
 
-A congruence claim requires a *joint* pattern: $`a_4 < 0`$, $`a_3 \approx 0`$, and a principal axis aligned with the congruence line ([Humberg, Nestler & Back 2019](https://doi.org/10.1177/1948550618757600)) [Established method].
+**Surface quantities**, all defined relative to the centring point $`(0, 0)`$ ([Edwards 2007](https://tarheels.live/jeffreyedwardswebsite/wp-content/uploads/sites/5503/2024/03/Edwards2007.pdf); [Shanock et al. 2010](https://doi.org/10.1007/s10869-010-9183-4); [Schönbrodt, Humberg & Nestler 2018](https://doi.org/10.1002/per.2169)):
+- $`a_1 = b_1 + b_2`$ is the slope along the line of congruence ($`S = N`$) **at the centring point only**. Substituting $`S = N = t`$ gives $`Y = b_0 + a_1 t + a_2 t^2`$, so the slope at level $`t`$ is $`a_1 + 2a_2 t`$. It is the linear component of the agreement line, not the effect of the amount of care everywhere, and it changes with the centring point whenever $`a_2 \ne 0`$;
+- $`a_2 = b_3 + b_4 + b_5`$ is the curvature along the line of congruence;
+- $`a_3 = b_1 - b_2`$ is the slope along the line of incongruence ($`S = -N`$) at the centring point; when $`a_4 \ne 0`$ it locates the highest or lowest point of that line away from $`(0, 0)`$, so $`a_3 \ne 0`$ puts the best outcome at a margin of over- or under-supply;
+- $`a_4 = b_3 - b_4 + b_5`$ is the curvature along the line of incongruence;
+- $`a_5 = b_3 - b_5`$ is zero when the ridge (or trough) can run along the line of congruence.
 
-**Translation-as-fit predicts** a substantial $`a_4`$, with directional terms ($`a_3`$ or cubic terms) where deficiency and excess differ. **Amount predicts** a dominant $`a_1`$ with incongruence terms near zero. Cubic RSA ([Humberg et al. 2022](https://doi.org/10.1037/met0000352)) or spline regression ([Edwards & Parry 2018](https://doi.org/10.1177/1094428117715067)) estimate an asymmetric loss without assuming its shape. That matters because the evidence on excess conflicts: over-provision was the greater risk over five years ([Brock & Lawrence 2009](https://doi.org/10.1037/a0015402)) but had minimal effect day to day ([Bar-Kalifa & Rafaeli 2013](https://doi.org/10.1037/a0034905)) [Moderate/mixed].
+**A negative $`a_4`$ is not, by itself, a mismatch penalty.** It shows an inverted U along one line through the centring point. A congruence (similarity) effect requires a *joint* pattern, each part estimated with its uncertainty: $`a_4 < 0`$; $`a_3 = 0`$; and the ridge on the line of congruence, that is a first principal axis with intercept $`p_{10} = 0`$ and slope $`p_{11} = 1`$ (equivalently $`a_5 = 0`$ given $`a_3 = 0`$) ([Schönbrodt, Humberg & Nestler 2018](https://doi.org/10.1002/per.2169); [Humberg, Nestler & Back 2019](https://doi.org/10.1177/1948550618757600)) [Established method]. A flat ridge ($`a_1 = a_2 = 0`$) makes it the prototypical pattern; $`a_1 \ne 0`$ or $`a_2 \ne 0`$ means outcomes also depend on the level at which supply and need agree. The stationary point and principal axes follow from $`b_1, \dots, b_5`$ ([Edwards 2007](https://tarheels.live/jeffreyedwardswebsite/wp-content/uploads/sites/5503/2024/03/Edwards2007.pdf), eqs. 11–18).
+
+**Empirical tests.** Point estimates are not enough. The required evidence is confidence intervals (for example bootstrap) for $`a_3`$, $`a_4`$, $`p_{10}`$ and $`p_{11}`$; comparison of the full quadratic model with constrained models such as the squared-difference model, which imposes $`b_1 = b_2 = 0`$, $`b_3 = b_5`$ and $`b_4 = -2b_3`$ ([Edwards 2007](https://tarheels.live/jeffreyedwardswebsite/wp-content/uploads/sites/5503/2024/03/Edwards2007.pdf)); enough observations in incongruent regions that the surface is not extrapolated; and adequate power for quadratic terms. Moderated regression with main effects and a single interaction cannot represent a congruence effect ([Schönbrodt, Humberg & Nestler 2018](https://doi.org/10.1002/per.2169)). Significance tests for the surface quantities should use the corrected formulas published in an erratum to Shanock et al. ([2014](https://doi.org/10.1007/s10869-013-9317-6); not accessed for this paper) [Preliminary].
+
+**Translation-as-fit predicts** the joint congruence pattern, or a directional variant ($`a_3 \ne 0`$ or cubic terms) where deficiency and excess differ. **Amount predicts** outcomes that rise with supply, along and across the agreement line, without that pattern. Cubic RSA ([Humberg et al. 2022](https://doi.org/10.1037/met0000352)) or spline regression ([Edwards & Parry 2018](https://doi.org/10.1177/1094428117715067)) estimate an asymmetric loss without assuming its shape. That matters because the evidence on excess conflicts: over-provision was the greater risk over five years ([Brock & Lawrence 2009](https://doi.org/10.1037/a0015402)) but had minimal effect day to day ([Bar-Kalifa & Rafaeli 2013](https://doi.org/10.1037/a0034905)) [Moderate/mixed].
 
 The answer to "is more care always better?" is therefore an empirical $`a_3`$ and cubic question, not an assumption. Intrusive or autonomy-violating "care" is better modelled as a separate outcome (Section 8.10) than as positive supply. Multilevel and dyadic versions handle diaries and couples ([Nestler, Humberg & Schönbrodt 2019](https://doi.org/10.1037/met0000199); [Schönbrodt, Humberg & Nestler 2018](https://doi.org/10.1002/per.2169)). A latent congruence model controls measurement error ([Cheung 2009](https://doi.org/10.1177/1094428107308914)).
 
@@ -136,9 +224,11 @@ Across channels, balanced need satisfaction predicts well-being beyond its sum (
 \mathbf{Y}_j(t) = \boldsymbol{\alpha} + \boldsymbol{\beta}_{\text{sub}}\; h\big(E_{i\to j}(t), N_j(t)\big) + \boldsymbol{\beta}_{\text{sym}}\; Q_j(t) + \boldsymbol{\Gamma}\mathbf{x}_t + \mathbf{e}_t, \qquad Q_j(t) = f\big(E_{i\to j}(t), \text{priors}_j(t)\big).
 ```
 
+**The routes are pathways of effect, not kinds of acts.** Both terms are functions of the same enacted care $`E`$: one act can change circumstances or needs (through $`h`$) and be read as regard (through $`Q`$). Money can communicate devotion; presence can meet a need for company, co-regulation or being known whether or not it is read as love. $`\boldsymbol{\beta}_{\text{sub}}`$ is the part of an act's effect that does not pass through perceived regard, and $`\boldsymbol{\beta}_{\text{sym}}`$ the part that does.
+
 The construct is the decomposition of care's total effect into a part that does not pass through perceived regard and a part that does. $`E`$ must be measured independently of the receiver (giver logs, observers) or randomized ([Section 18](18-proposed-study.md)), and $`Q`$ comes from the receiver. Mediation decomposition is the appropriate operation, but only under strong assumptions, notably no unmeasured confounding of the mediator–outcome relation. Path models with reversed arrows or compared fit indices cannot decide between causal structures ([Rohrer et al. 2022](https://doi.org/10.1177/25152459221095827); [Bullock, Green & Ha 2010](https://doi.org/10.1037/a0018933)) [Established].
 
-As support, invisible support and income effects show that a non-perceptual route exists [Moderate to Established]. The prediction that $`\boldsymbol{\beta}_{\text{sub}}`$ loads on material, behavioural and educational outcomes while $`\boldsymbol{\beta}_{\text{sym}}`$ loads on emotional and relational outcomes is speculative [Our hypothesis].
+As support, invisible support and income effects show that a non-perceptual route exists [Moderate to Established]. The prediction that $`\boldsymbol{\beta}_{\text{sub}}`$ loads on material, behavioural and educational outcomes while $`\boldsymbol{\beta}_{\text{sym}}`$ loads on emotional and relational outcomes is speculative [Our hypothesis]. It concerns routes, not act types, so evidence that classifies acts, such as perceived financial versus emotional support ([Chentsova Dutton, Choi & Choi 2020](https://doi.org/10.3389/fpsyg.2020.00353)), is consistent with it but cannot test it.
 
 ## 8.9 Component 6: dynamics
 
@@ -174,16 +264,6 @@ The model predicts that **the lag grows with the speed of developmental change a
 
 ## 8.10 Component 7: constraints that are not weights
 
-**Safety as a lexicographic gate** [Our hypothesis, informed by Moderate evidence]. Evaluate relationship states lexicographically, safety first:
-
-```math
-x \succ y \iff \text{Safe}(x) > \text{Safe}(y) \ \ \text{or}\ \ \big[\text{Safe}(x) = \text{Safe}(y) \ \text{and}\ \text{Care}(x) \succ \text{Care}(y)\big].
-```
-
-Lexicographic orders cannot in general be represented by any real-valued utility ([Fishburn 1974](https://doi.org/10.1287/mnsc.20.11.1442)) [Established mathematics]. No finite weight on safety in a weighted sum reproduces the gate. The case for a gate is empirical: harm from violence and coercion appears on dimensions (fear, PTSD, injury) orthogonal to love ratings, and love and commitment measures can move in the *wrong* direction as safety falls ([Arriaga, Capezza & Daly 2016](https://doi.org/10.1037/pspi0000035); [Lohmann et al. 2024](https://doi.org/10.1177/15248380231162972)). A weighted sum would partly cancel the danger signal. The empirical signature of a gate is that below a safety threshold, outcomes become insensitive to care in other channels. This can be tested against additive models with hurdle or threshold models and necessary condition analysis ([Dul 2016](https://doi.org/10.1177/1094428115584005)). Whether to treat safety this way is partly a normative choice that the data inform but do not settle.
-
-**Autonomy as a separate outcome.** Psychological control and autonomy support have *distinct* associations with outcomes even when each controls for the other ([Bradshaw et al. 2025](https://doi.org/10.1037/amp0001389)) [Established, associational]. So $`U_j`$ is modelled as its own outcome, with the legitimacy of the domain as a moderator ([Smetana & Daddis 2002](https://doi.org/10.1111/1467-8624.00424)). It is not subtracted from "care."
-
 **Compatibility as feasibility** [Our hypothesis]. Let $`x`$ range over joint life patterns: allocations of time and money, location, children, careers and care flows. Let $`G_A(x) \ge 0`$ and $`G_B(x) \ge 0`$ be each person's essential requirements, and $`W_i(x) \ge w_i^{\min}`$ each person's sustainability threshold. Define
 
 ```math
@@ -196,6 +276,21 @@ This definition separates three cases:
 - **Unsustainable need** is the special case where $`\mathcal{F}`$ is empty because $`G_B`$ can be satisfied only with $`W_A < w_A^{\min}`$.
 
 Understanding, meaning accurate models of each other's $`G`$, helps partners *find* a point in $`\mathcal{F}`$ but cannot *create* one. That is the formal content of "perfect understanding, incompatible lives." Measurement is the weak point here. Goal-conflict measures ([Gere & Schimmack 2013](https://doi.org/10.1007/s10902-011-9314-2)) and research on dealbreakers ([Jonason et al. 2015](https://doi.org/10.1177/0146167215609064)) are partial proxies.
+
+**Safety as an admissibility constraint** [Our hypothesis in formalisation; partly normative]. Unsafe arrangements are removed before anything is compared:
+
+```math
+\mathcal{F}_{\text{safe}} = \{x \in \mathcal{F} : \mathrm{Safe}(x) = 1\}, \qquad x^{\star} = \arg\max_{x \in \mathcal{F}_{\text{safe}}} \mathrm{Outcome}(x) \ \text{ only if } \mathcal{F}_{\text{safe}} \ne \varnothing.
+```
+
+$`\mathrm{Safe}(x) \in \{0, 1\}`$ is decided from safety indicators $`\mathbf{Z}`$ (violence, threats, coercive control, fear-based compliance) against a threshold, never from perceived love $`Q`$ or from care. If $`\mathcal{F}_{\text{safe}} = \varnothing`$, the model reports that no admissible arrangement exists and recommends nothing.
+
+Two weaker formalisations fail. A weighted sum cannot exclude anything: lexicographic preferences cannot in general be represented by a real-valued utility ([Fishburn 1974](https://doi.org/10.1287/mnsc.20.11.1442)) [Established mathematics], and for every finite safety weight there is an unsafe but caring arrangement that the sum prefers to a safe one. A lexicographic order (safety first, then care) ranks rather than excludes: when every option is unsafe it still selects the least unsafe one, or the more caring of two equally unsafe ones. Version 0.1.0 of this paper used that order; it is corrected here (see [`CORRECTIONS.md`](../CORRECTIONS.md), C3).
+
+The case for keeping safety outside the care calculus is empirical: harm from violence and coercion appears on dimensions (fear, PTSD, injury) orthogonal to love ratings, and love and commitment measures can move in the *wrong* direction as safety falls ([Arriaga, Capezza & Daly 2016](https://doi.org/10.1037/pspi0000035); [Lohmann et al. 2024](https://doi.org/10.1177/15248380231162972)). A weighted sum would partly cancel the danger signal. One empirical question remains: below a safety threshold, do outcomes become insensitive to care in other channels? Threshold or hurdle models and necessary condition analysis can test that non-compensability ([Dul 2016](https://doi.org/10.1177/1094428115584005)). Where to set the threshold, and the decision to exclude, are normative choices that the data inform but do not settle.
+
+**Autonomy as a separate outcome.** Psychological control and autonomy support have *distinct* associations with outcomes even when each controls for the other ([Bradshaw et al. 2025](https://doi.org/10.1037/amp0001389)) [Established, associational]. So $`U_j`$ is modelled as its own outcome, with the legitimacy of the domain as a moderator ([Smetana & Daddis 2002](https://doi.org/10.1111/1467-8624.00424)). It is not subtracted from "care."
+
 
 **Multiplicative bottleneck or additive?** Whether care in the wrong channel is worthless (multiplicative) or a partial substitute (additive) cannot be decided from ordinal outcomes. $`Y = A \cdot B`$ becomes additive after a log transform, so non-crossover interactions are scale-dependent ([Wagenmakers et al. 2012](https://doi.org/10.3758/s13421-011-0158-0); [Rohrer & Arslan 2021](https://doi.org/10.1177/25152459211007368)) [Established]. Only crossover predictions, factorial experiments or necessary-condition analysis can decide it.
 
@@ -217,11 +312,11 @@ The cross-channel translation matrix $`\boldsymbol{\Lambda}`$ in $`\mathbf{S}_B 
 | Detection (probit signal detection) | Registering that care occurred | Diary checklists (practice, not validated scales) | Binary occurrence calls for a probit or logit model | Giver report as signal | Misses and false alarms ([Visserman et al. 2019](https://doi.org/10.1177/1948550618757599)) | Channel-specific $`d'`$ |
 | Truth and bias | Accuracy, projection, level bias in perceived care | Responsiveness scales; criterion reports | Standard decomposition of judgment | Common metric; criterion is a report | Projection ([Lemay, Clark & Feeney 2007](https://doi.org/10.1037/0022-3514.92.5.834)); accuracy and bias ([Fletcher & Kerr 2010](https://doi.org/10.1037/a0019792)) | Size of $`\delta`$ for care adequacy |
 | Motive inference (naïve utility calculus) | Inferred value of the receiver to the giver | None in couples | Bayesian inversion of cost-sensitive choice | Near-rational choice; known options | Laboratory and infants only | All relationship applications |
-| Need fulfilment (RSA) | Fit versus level of care | Support desire and receipt items | Separates level ($`a_1`$) from mismatch ($`a_3`$, $`a_4`$) | Commensurate $`N, S`$; power | Over- and under-provision ([Brock & Lawrence 2009](https://doi.org/10.1037/a0015402)) | Care-channel surfaces |
-| Two routes | Substantive versus symbolic effects | Requires independent $`E`$ | Mediation decomposition | Sequential ignorability or randomization | Invisible support; income effects | Distinct outcome signatures |
+| Need fulfilment (RSA) | Fit versus level of care | Support desire and receipt items | Separates the agreement-line level ($`a_1, a_2`$) from the joint congruence pattern ($`a_3, a_4`$, principal axis) | Commensurate, commonly centred $`N, S`$; data in incongruent regions; power | Over- and under-provision ([Brock & Lawrence 2009](https://doi.org/10.1037/a0015402)) | Care-channel surfaces |
+| Two routes | Effects of the same acts with and without perceived regard | Requires independent $`E`$ | Mediation decomposition | Sequential ignorability or randomization | Invisible support; income effects | Distinct outcome signatures |
 | Trust state-space | Trust dynamics and roles | Trait trust scales; daily items | Latent state with feedback | Indicator validity; stationarity | Trust as outcome, mediator and moderator | Bistability; shape of $`p(\cdot)`$ |
 | Developmental lag | Giver's need model tracking change | Paired predictions | Error-correction learning | Linear drift; constant $`\lambda`$ | Indirect (normative adolescent change) | Entire component |
-| Safety gate | Non-compensability of danger | CTS2, CAS, PMWI, fear items | Lexicographic order | Threshold exists and is measurable | Harm not offset by love ([Arriaga, Capezza & Daly 2016](https://doi.org/10.1037/pspi0000035)) | Threshold location; normative weight |
+| Safety admissibility | Exclusion of unsafe arrangements | CTS2, CAS, PMWI, fear items | Constrained choice over $`\mathcal{F}_{\text{safe}}`$ | Threshold measurable; decided without $`Q`$ | Harm not offset by love ([Arriaga, Capezza & Daly 2016](https://doi.org/10.1037/pspi0000035)) | Threshold location; normative weight |
 | Compatibility set $`\mathcal{F}`$ | Joint feasibility | Goal-conflict and dealbreaker proxies | Set-theoretic emptiness | Essential requirements identifiable | Goal conflict harms ([Gere & Schimmack 2013](https://doi.org/10.1007/s10902-011-9314-2)) | Measurement of $`G`$ |
 
 ## 8.13 What can be identified from what data
@@ -231,7 +326,7 @@ The cross-channel translation matrix $`\boldsymbol{\Lambda}`$ in $`\mathbf{S}_B 
 | Actor and partner associations ($`a, p`$) | Both partners' $`X`$ and $`Y`$, many dyads | Yes (associational) |
 | Truth, projection, directional bias ($`\tau, \pi, \delta`$) | Repeated judgments plus a criterion on the same metric | Yes; "truth" is only another report |
 | Detection ($`d', c`$) | Both partners' daily act reports; enough signal-present and signal-absent days | Yes, descriptively; firmer with observers or experiments |
-| Level versus mismatch ($`a_1`$ versus $`a_3, a_4`$) | Commensurate $`N`$ and $`S`$, large samples | Yes, associational; not yet done for care channels |
+| Agreement-line level versus congruence pattern ($`a_1, a_2`$ versus $`a_3, a_4, p_{10}, p_{11}`$) | Commensurate $`N`$ and $`S`$, large samples | Yes, associational; not yet done for care channels |
 | Relationship-specific misperception ($`\gamma_{ij}`$) | Round-robin families or multi-partner designs | Not from couples; yes from families of four or more |
 | Route weights ($`\beta_{\text{sub}}, \beta_{\text{sym}}`$) | Enactment independent of perception, ideally randomized | Only with experiments or micro-randomized trials |
 | Learning rate $`\lambda`$ | Long paired series of predicted versus reported needs | In principle; no study |

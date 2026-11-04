@@ -5,8 +5,9 @@
 [![ci](https://github.com/julienaxyomlabs/love-in-translation/actions/workflows/ci.yml/badge.svg)](https://github.com/julienaxyomlabs/love-in-translation/actions/workflows/ci.yml)
 ![python](https://img.shields.io/badge/python-3.9%E2%80%933.13-3776AB)
 ![runtime deps](https://img.shields.io/badge/runtime%20deps-0-2ea44f)
-![DOIs](https://img.shields.io/badge/DOIs%20resolved-374%2F374-2ea44f)
-![claims](https://img.shields.io/badge/graded%20claims-276-1f6feb)
+![DOIs](https://img.shields.io/badge/DOIs%20resolved-375%2F375-2ea44f)
+![claims](https://img.shields.io/badge/graded%20claims-280-1f6feb)
+![empirical validation](https://img.shields.io/badge/empirical%20validation-none%20yet-lightgrey)
 ![code license](https://img.shields.io/badge/code-MIT-blue)
 ![content license](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey)
 
@@ -30,10 +31,11 @@ not translation at all  incompatible goals · unsustainable demands · coercion
 - [Verdict by clause](#verdict-by-clause)
 - [Repository layout](#repository-layout)
 - [Quickstart](#quickstart)
+- [Model at a glance](#model-at-a-glance)
 - [The model in code](#the-model-in-code)
 - [Command line](#command-line)
 - [Evidence as data](#evidence-as-data)
-- [Guarantees and non-guarantees](#guarantees-and-non-guarantees)
+- [What has and has not been checked](#what-has-and-has-not-been-checked)
 - [Challenge a claim](#challenge-a-claim)
 - [Citation and licence](#citation-and-licence)
 
@@ -58,9 +60,9 @@ Full reasoning: [`paper/01-question-and-thesis.md`](paper/01-question-and-thesis
 │   ├── 00-summary.md … 20-bibliography.md
 │   └── figures/            model.svg (Figure 1) · model-mermaid.md (editable source)
 ├── src/love_translation/   stdlib-only reference implementation of the formal model
-├── tests/                  36 tests: every formal claim in §8 is executable
+├── tests/                  43 tests: the code reproduces §8's formal claims and published RSA examples
 ├── evidence/
-│   ├── claims.jsonl        276 graded claims extracted from the paper (generated)
+│   ├── claims.jsonl        280 graded claims extracted from the paper (generated)
 │   ├── references.bib      BibTeX for every cited DOI (generated)
 │   ├── doi-verification.csv  Crossref resolution of every DOI (generated)
 │   └── notes/              seven structured literature reviews behind the paper
@@ -68,6 +70,7 @@ Full reasoning: [`paper/01-question-and-thesis.md`](paper/01-question-and-thesis
 ├── docs/
 │   ├── research-brief.md   the brief that defined the project
 │   └── adr/                architecture decision records for the modelling choices
+├── CORRECTIONS.md          earlier wording, fix, sources and how they were checked
 └── .github/                CI (3.9–3.13 matrix), citation workflow, issue forms
 ```
 
@@ -76,13 +79,98 @@ Full reasoning: [`paper/01-question-and-thesis.md`](paper/01-question-and-thesis
 ```bash
 git clone https://github.com/julienaxyomlabs/love-in-translation.git
 cd love-in-translation
-make check          # markdown lint + ledger freshness + 36 tests; offline, stdlib only
+make check          # markdown lint + ledger freshness + 43 tests; offline, stdlib only
 pip install -e .    # optional: installs the `love-translation` CLI
 make paper          # single-file build -> dist/paper.md
 make dois           # re-resolve every DOI against Crossref (network)
 ```
 
 No runtime dependencies. Python ≥ 3.9. `make help` lists every target.
+
+## Model at a glance
+
+> **Status: a structural hypothesis, not a validated model.** Every parameter below is unknown and nothing has been estimated. The unit tests check that the code implements these equations and reproduces published worked examples; they do not show that any mechanism is true. Resolving all cited DOIs shows the references point to the right works, not that each work supports every claim attributed to it.
+
+![The model at a glance: ten components, two routes, compatibility and safety](paper/figures/model-at-a-glance.png)
+
+The model runs in both directions at once (swap A and B). For care from A to B at occasion $`t`$:
+
+```math
+\begin{aligned}
+&\text{(1) Enactment}     && E_{A\to B}(t) = g\big(I_{A\to B}(t),\ \tilde N_{A\to B}(t)\big), \quad E_{A\to B}(t)\in\mathcal C_A(t)\\
+&\text{(2) Detection}     && \Pr\big(D_{B,k}(t)=1\big) = \Phi\big(-c_B + d'_B\,\mathbf 1[E_{A\to B,k}(t)>0] + \gamma\,v_k\big)\\
+&\text{(3) Construal}     && Q_B(t)-\mu = \tau\,\big(X_A(t)-\mu\big) + \pi\,\big(O_B(t)-\mu\big) + \delta\big(T_B(t)\big) + u_B(t)\\
+&\text{(4) Motive}        && \Pr(w\mid \text{act}) \propto \Pr(w)\,\sigma\big(\beta\,(w\,b-\hat c)\big)\\
+&\text{(5) Fit}           && \mathbf S_B(t) = \boldsymbol\Lambda\,\mathbf E_{A\to B}(t), \qquad h(S,N) = b_0+b_1S+b_2N+b_3S^2+b_4SN+b_5N^2\\
+&\text{(6) Two routes}    && \mathbf Y_B(t) = \boldsymbol\alpha + \boldsymbol\beta_{\text{sub}}\,h\big(S_B(t),N_B(t)\big) + \boldsymbol\beta_{\text{sym}}\,Q_B(t) + \boldsymbol\Gamma\,\mathbf x(t) + \mathbf e(t)\\
+&\text{(7) Trust}         && T_B(t+1) = T_B(t) + \eta\,\big[p\big(Q_B(t),T_B(t)\big)-T_B(t)\big] + \varepsilon(t)\\
+&\text{(8) Giver's model} && \tilde N_{A\to B}(t+1) = \tilde N_{A\to B}(t) + \lambda(t)\,\big[N_B(t)-\tilde N_{A\to B}(t)\big] + \xi(t)\\
+&\text{(9) Compatibility} && \mathcal F = \big\{x\in\mathcal C_A\times\mathcal C_B : G_A(x)\ge 0,\ G_B(x)\ge 0,\ W_A(x)\ge w_A^{\min},\ W_B(x)\ge w_B^{\min}\big\}\\
+&\text{(10) Safety}       && \mathcal F_{\text{safe}} = \{x\in\mathcal F : \mathrm{Safe}(x)=1\}; \ \text{outcomes are compared only within } \mathcal F_{\text{safe}}
+\end{aligned}
+```
+
+Canonical version with derivations: [chapter 8](paper/08-mathematical-representation.md#model-at-a-glance).
+
+### What each equation says, and how well it is supported
+
+The columns keep three things apart: the statistical method (is the tool standard?), the psychological evidence (is the mechanism observed?), and what is original to this project (untested).
+
+| # | In words | Statistical method | Psychological evidence | Original to this project | Details |
+|---|---|---|---|---|---|
+| 1 | A acts on intention and on A's picture of B's needs, but only within what A can actually do. | none needed: a constraint | Stress limits acting on needs that were noticed ([Neff, Nguyen & Williamson 2021](https://doi.org/10.1177/0146167220974490)) [Moderate/mixed] | Constraint form [Assumption] | [§8.4](paper/08-mathematical-representation.md#84-component-1-enactment-under-capacity) |
+| 2 | Whether B registers an act depends on B's sensitivity and threshold, and on how visible the act is. | Signal detection as a mixed-effects probit ([DeCarlo 1998](https://doi.org/10.1037/1082-989X.3.2.186)) [Established method] | About half of sacrifices go unnoticed ([Visserman et al. 2019](https://doi.org/10.1177/1948550618757599)) [Moderate/mixed] | Visibility term $`\gamma v_k`$ [Our hypothesis] | [§8.5](paper/08-mathematical-representation.md#85-component-2-detection) |
+| 3 | Perceived care tracks what A did ($`\tau`$), projects B's own care ($`\pi`$) and is shifted by a level bias ($`\delta`$). | Truth-and-bias model ([West & Kenny 2011](https://doi.org/10.1037/a0022936)) [Established method] | Projection ([Lemay, Clark & Feeney 2007](https://doi.org/10.1037/0022-3514.92.5.834)) [Moderate]; partners are accurate and positively biased at once ([Fletcher & Kerr 2010](https://doi.org/10.1037/a0019792)) [Established] | Bias that depends on trust, $`\delta(T)`$ [Our hypothesis] | [§8.6](paper/08-mathematical-representation.md#86-component-3-construal-and-motive-inference) |
+| 4 | B infers how much A values B from what B believes the act cost A. | Bayesian inverse planning ([Jara-Ettinger et al. 2016](https://doi.org/10.1016/j.tics.2016.05.011)) [Established in laboratory cognition] | Value inferred from cost in laboratory tasks, including infants ([Liu et al. 2017](https://doi.org/10.1126/science.aag2132)) [Moderate, laboratory only] | Application to care; visibility of cost [Our hypothesis] | [§8.6](paper/08-mathematical-representation.md#86-component-3-construal-and-motive-inference) |
+| 5 | Acts become supply on the need's own scale; the outcome is a surface over supply and need, read along $`S=N`$ and $`S=-N`$ around a shared centring point. | Polynomial regression with response surface analysis ([Edwards 2007](https://tarheels.live/jeffreyedwardswebsite/wp-content/uploads/sites/5503/2024/03/Edwards2007.pdf); [Schönbrodt, Humberg & Nestler 2018](https://doi.org/10.1002/per.2169)) [Established method] | Both under- and over-provision of support matter ([Brock & Lawrence 2009](https://doi.org/10.1037/a0015402)) [Moderate/mixed]; no care-channel surface published | Translation matrix $`\boldsymbol\Lambda`$ [Assumption] | [§8.7](paper/08-mathematical-representation.md#87-component-4-need-fulfilment-and-fit) |
+| 6 | Every act can work through two routes at once: changing B's circumstances and needs (substantive) and being read as regard (symbolic). | Mediation decomposition; needs independent or randomised enactment ([Rohrer et al. 2022](https://doi.org/10.1177/25152459221095827)) [Established method, strong assumptions] | Unnoticed support helps ([Bolger, Zuckerman & Kessler 2000](https://doi.org/10.1037/0022-3514.79.6.953)) [Moderate/mixed]; income improves children's outcomes ([Cooper & Stewart 2021](https://doi.org/10.1007/s12187-020-09782-0)) [Moderate to Established] | Route split and outcome signatures [Our hypothesis] | [§8.8](paper/08-mathematical-representation.md#88-component-5-the-two-routes-our-hypothesis) |
+| 7 | Trust moves toward what B currently perceives, and colours how the next act is read. | Latent state-space model ([Song & Ferrer 2009](https://doi.org/10.1080/10705510902751432)) [Established method] | Trust acts as outcome, mediator and moderator ([Wieselquist et al. 1999](https://doi.org/10.1037/0022-3514.77.5.942); [Campbell et al. 2010](https://doi.org/10.1037/a0019714)) [Moderate/mixed] | Reading function $`p(\cdot)`$; any bistability [Theoretical] | [§8.9](paper/08-mathematical-representation.md#89-component-6-dynamics) |
+| 8 | A's picture of B's needs catches up at a rate $`\lambda`$ set by contact and disclosure; under steady change it lags by $`e^*=r/\lambda`$. | Error-correction learning [Established mathematics] | Fast change in adolescent autonomy needs ([Hadiwijaya et al. 2017](https://doi.org/10.1007/s10964-016-0627-7)) [indirect] | The lag model [Our hypothesis] | [§8.9](paper/08-mathematical-representation.md#89-component-6-dynamics) |
+| 9 | A shared life is possible only if some arrangement meets both people's essentials without pushing either below a sustainability threshold. | Set definition | Goal conflict lowers quality regardless of understanding ([Gere & Schimmack 2013](https://doi.org/10.1007/s10902-011-9314-2)) [Moderate/mixed] | Feasibility formalisation [Our hypothesis] | [§8.10](paper/08-mathematical-representation.md#810-component-7-constraints-that-are-not-weights) |
+| 10 | Unsafe arrangements are excluded before anything is compared; if none is safe, the model recommends nothing. Perceived love never enters $`\mathrm{Safe}(x)`$. | Constrained choice over $`\mathcal F_{\text{safe}}`$; no weighted sum can exclude ([Fishburn 1974](https://doi.org/10.1287/mnsc.20.11.1442)) [Established mathematics] | Felt love and commitment can rise as safety falls ([Arriaga, Capezza & Daly 2016](https://doi.org/10.1037/pspi0000035)); harms appear on dimensions separate from love ratings ([Lohmann et al. 2024](https://doi.org/10.1177/15248380231162972)) [Moderate/mixed] | Admissibility rule and its threshold [Our hypothesis; partly normative] | [§8.10](paper/08-mathematical-representation.md#810-component-7-constraints-that-are-not-weights) |
+
+Reading the fit surface (5) needs care: $`a_1=b_1+b_2`$ is the slope along $`S=N`$ **at the centring point only**, and a negative $`a_4=b_3-b_4+b_5`$ is **not by itself** a mismatch penalty. A congruence effect needs the joint pattern $`a_4<0`$, $`a_3=0`$ and a first principal axis on $`S=N`$, with confidence intervals and model comparison ([§8.7](paper/08-mathematical-representation.md#87-component-4-need-fulfilment-and-fit)).
+
+### Variables: definitions, units and domains
+
+| Symbol | Meaning | Unit or scale | Domain |
+|---|---|---|---|
+| $`t`$; $`k`$ | occasion (diary day or panel wave); care channel (presence, talk, touch, practical help, money, …) | time step; index | $`t\in\mathbb N`$; $`k=1,\dots,K`$ |
+| $`I_{A\to B}`$ | A's intention to care, by channel | self-report rating | latent, $`\ge 0`$ |
+| $`\mathcal C_A(t)`$ | what A can feasibly enact (time, money, energy, stress) | channel units | subset of $`\mathbb R_{\ge0}^K`$ |
+| $`E_{A\to B,k}(t)`$ | care A enacts in channel $`k`$ | minutes, currency, counts | $`\ge 0`$ |
+| $`D_{B,k}(t)`$ | B registers that an act occurred | indicator | $`\{0,1\}`$ |
+| $`d'_B,\ c_B`$ | B's detection sensitivity and criterion | z units | $`\mathbb R`$ |
+| $`v_k,\ \gamma`$ | visibility of an act and of its cost; its effect on detection | proportion or design indicator; z units per unit of $`v`$ | $`v_k\in[0,1]`$; $`\gamma\in\mathbb R`$ |
+| $`Q_B(t)`$ | B's perceived regard: feeling understood, valued, cared for | rating-scale score | bounded scale, treated as interval |
+| $`X_A(t),\ O_B(t),\ \mu`$ | criterion for A's care (A's report or observer coding); B's own care given; criterion mean | same scale as $`Q`$ | same as $`Q`$ |
+| $`\tau,\ \pi`$ | truth force and projection force | dimensionless weights | $`\mathbb R`$, typically 0 to 1 |
+| $`\delta(T)`$ | directional (level) bias, possibly dependent on trust | scale units of $`Q`$ | $`\mathbb R`$ |
+| $`w`$ | the weight A places on B's welfare, as B infers it | utility weight | $`[0,1]`$ in the reference code |
+| $`b,\ \hat c,\ \beta`$ | benefit of the act to B; cost B believes A paid; choice precision in B's model of A | utility units; 1/utility units for $`\beta`$ | $`b,\hat c\ge 0`$; $`\beta>0`$ |
+| $`N_{B,k}(t),\ S_{B,k}(t)`$ | B's need and the supply B received in channel $`k`$ | one shared need metric, centred at the scale midpoint | bounded scale |
+| $`\boldsymbol\Lambda`$ | translation from acts (channel units) to supply (need metric) | need units per channel unit | $`K\times K`$ matrix |
+| $`b_0,\dots,b_5`$; $`a_1,\dots,a_5`$; $`p_{10},p_{11}`$ | polynomial coefficients; surface quantities at the centring point; first principal axis | outcome units per centred scale unit (and squares) | $`\mathbb R`$ |
+| $`\mathbf Y_B(t)`$ | B's outcomes (well-being, satisfaction, …), each on its own instrument | instrument units | $`\mathbb R^m`$ |
+| $`\boldsymbol\beta_{\text{sub}},\ \boldsymbol\beta_{\text{sym}},\ \boldsymbol\Gamma,\ \mathbf x(t)`$ | effects of the two routes on each outcome; covariates and their coefficients | outcome units per unit of $`h`$ or $`Q`$ | $`\mathbb R^m`$ |
+| $`T_B(t),\ \eta,\ p(\cdot)`$ | B's trust in A, normalised; updating rate; trust-dependent reading of perceived regard | proportion of scale range; per step | $`T\in[0,1]`$; $`\eta\in(0,1]`$; $`p:[0,1]\to[0,1]`$ |
+| $`\tilde N_{A\to B}(t),\ \lambda(t),\ r`$ | A's model of B's need; its learning rate; drift rate of B's need | need units; per step; need units per step | bounded scale; $`\lambda\in(0,1]`$; $`r\in\mathbb R`$ |
+| $`G_A(x),\ G_B(x)`$ | margins on each person's essential requirements under arrangement $`x`$ | requirement-specific | $`\ge 0`$ means met |
+| $`W_A(x),\ W_B(x);\ w^{\min}`$ | each person's well-being under $`x`$; sustainability thresholds | well-being scale units | $`\mathbb R`$ |
+| $`\mathrm{Safe}(x)`$ | $`x`$ passes the safety criterion on validated indicators (violence, threats, coercive control, fear-based compliance) | indicator | $`\{0,1\}`$ |
+| $`\mathcal F,\ \mathcal F_{\text{safe}}`$ | feasible joint arrangements; the safe subset | sets of arrangements | possibly empty |
+
+### Assumptions and what can be identified
+
+- $`S`$ and $`N`$ must be commensurable and centred on a shared zero; otherwise the surface quantities in (5) say nothing about fit.
+- $`X`$ is another report, not the truth. $`\tau`$, $`\pi`$ and $`\delta`$ need repeated judgments plus a criterion on the same metric.
+- $`d'`$ and $`c`$ describe disagreement between two reports unless an observer or an experiment supplies the criterion.
+- $`\boldsymbol\beta_{\text{sub}}`$ and $`\boldsymbol\beta_{\text{sym}}`$ need enactment measured independently of the receiver, ideally randomised; observational mediation also needs no unmeasured mediator–outcome confounding.
+- $`\boldsymbol\Lambda`$ has $`K^2`$ parameters and cannot be identified for a single dyad; it needs pooling with structure or randomised channels.
+- $`\lambda`$ needs long paired series of A's predictions against B's reports. No such study exists.
+- $`p(\cdot)`$ and any bistability are practically unidentifiable, and no study has shown bistability in relationships.
+- $`\mathrm{Safe}(x)`$ uses a normative threshold. Data can show whether care compensates for danger, not where the line must be.
+- The equations are explanatory hypotheses. Predictive value would have to be shown out of sample, beyond the perceptions that already predict relationship quality.
 
 ## The model in code
 
@@ -91,13 +179,13 @@ Each module implements one component of the formal model in [`paper/08-mathemati
 | Component | Equation (paper) | Module | Evidence status |
 |---|---|---|---|
 | Similarity pitfalls | $`\cos(\alpha\mathbf{E},\beta\mathbf{N})=\cos(\mathbf{E},\mathbf{N})`$ (§8.3) | [`similarity.py`](src/love_translation/similarity.py) | Established mathematics |
-| Level vs mismatch | $`Y=b_0+b_1S+b_2N+b_3S^2+b_4SN+b_5N^2`$, $`a_4=b_3-b_4+b_5`$ (§8.7) | [`fit.py`](src/love_translation/fit.py) | Established method; no care-channel surface published |
+| Fit surface | $`Y=b_0+b_1S+b_2N+b_3S^2+b_4SN+b_5N^2`$; $`a_1,\dots,a_5`$, stationary point and principal axes (§8.7) | [`fit.py`](src/love_translation/fit.py) | Established method; congruence needs a joint pattern, not one coefficient; no care-channel surface published |
 | Detection | $`\Pr(D=1)=\Phi(-c+d'\,\mathbb{1}[E>0])`$ (§8.5) | [`detection.py`](src/love_translation/detection.py) | Established method |
 | Truth and bias | $`Q-\mu=\tau(X-\mu)+\pi(O-\mu)+\delta`$ (§8.6) | [`truth_bias.py`](src/love_translation/truth_bias.py) | Established method |
 | Motive inference | $`\Pr(a_1\mid w)=\sigma(\beta(wb-c))`$ (§8.6) | [`inference.py`](src/love_translation/inference.py) | Theoretical; never estimated on couples or families |
 | Trust dynamics | $`\dot T=\eta\,[p(T)-T]`$ (§8.9) | [`trust.py`](src/love_translation/trust.py) | Theoretical; no evidence of bistability |
 | Developmental lag | $`e^*=r/\lambda`$ (§8.9) | [`lag.py`](src/love_translation/lag.py) | Our hypothesis |
-| Safety gate, feasibility | lexicographic order; $`\mathcal{F}=\varnothing`$ (§8.10) | [`constraints.py`](src/love_translation/constraints.py) | Our hypothesis (formalisation) |
+| Compatibility, safety | $`\mathcal{F}=\varnothing`$; $`\mathcal{F}_{\text{safe}}=\{x\in\mathcal{F}:\mathrm{Safe}(x)=1\}`$ (§8.10) | [`constraints.py`](src/love_translation/constraints.py) | Our hypothesis (formalisation); safety threshold partly normative |
 
 Design decisions and rejected alternatives (cosine similarity, importance weighting, difference scores, "love differential equations") are recorded as ADRs in [`docs/adr/`](docs/adr/README.md).
 
@@ -149,7 +237,7 @@ Also available as `python -m love_translation …` without installing.
 
 | grade | established | moderate | preliminary | theoretical | hypothesis | assumption |
 |---|---:|---:|---:|---:|---:|---:|
-| claims | 88 | 116 | 23 | 18 | 25 | 6 |
+| claims | 89 | 116 | 25 | 18 | 26 | 6 |
 
 ```bash
 love-translation claims --grade hypothesis              # everything this paper invented
@@ -159,13 +247,18 @@ jq -r 'select(.grade=="preliminary") | .chapter' evidence/claims.jsonl | sort | 
 
 Field definitions and provenance for every generated file: [`evidence/README.md`](evidence/README.md).
 
-## Guarantees and non-guarantees
+## What has and has not been checked
 
-- **Citations are real.** All 374 DOIs resolve, and their registered titles and authors match the references (`make dois`). The 21 non-DOI sources are direct URLs.
-- **Strength is visible.** Every claim carries one of six grades; the paper's own propositions are tagged *Our hypothesis* and are untested.
-- **The math runs.** Every quantitative claim in §8 (scale invariance, the 0.959/0.926/0.763 cosine values, the 1-versus-3 equilibrium cases, $`e^*=r/\lambda`$, the safety-gate impossibility) is a test.
-- **No manufactured precision.** No equation here is a validated psychological law; nothing estimates a coefficient from data.
+| Check | What it shows | What it does **not** show |
+|---|---|---|
+| 43 unit tests (`make test`) | The code implements the stated equations; mathematical identities hold (cosine scale invariance, the 1-versus-3 equilibrium cases, $`e^*=r/\lambda`$, no finite safety weight excludes unsafe options); the RSA code reproduces published worked examples (Edwards 2007; Schönbrodt, Humberg & Nestler 2018) | That any psychological mechanism in the model is true. **Passing tests is not empirical validation.** |
+| DOI resolution (`make dois`) | All 375 DOIs resolve and their registered titles and authors match the references; the 22 non-DOI sources are direct URLs | That each study supports the claim attributed to it. Many findings were checked against abstracts only; the depth for each source is tagged in [`evidence/notes/`](evidence/notes/) |
+| Evidence grades | Every claim carries one of six grades; the paper's own propositions are tagged *Our hypothesis* | That the grading is beyond dispute. Challenge it with the issue form |
+| Empirical test of the model | None has been run | Anything about the model's validity. Chapter 18 proposes the study that could |
+
+- **No manufactured precision.** No equation here is a validated psychological law, and nothing estimates a coefficient from data.
 - **Not a diagnostic tool.** Nothing in this repository assesses a real relationship or family. Population statistics never describe individuals.
+- **Corrections are logged.** Changes to what an earlier version claimed are recorded in [`CORRECTIONS.md`](CORRECTIONS.md) with the earlier wording, the sources and how deeply each source was checked.
 
 The literature review and first draft were produced with AI-assisted research tooling and then checked as described above.
 

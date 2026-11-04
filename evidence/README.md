@@ -24,7 +24,7 @@ One JSON object per line, keys sorted, UTF-8.
 | `dois` | string[] | DOIs cited inside the claim's span |
 | `kind` | enum | `prose` (text ending in a tag) or `table-row` (row of a graded table) |
 
-A prose claim is the text between the previous tag and the current one, so a long paragraph can yield several claims. The legend table that defines the grades is excluded.
+A prose claim is the text between the previous tag and the current one, so a long paragraph can yield several claims. The legend table that defines the grades is excluded, and so is the "Model at a glance" summary in chapter 8, which restates claims graded in §8.4–8.10 and would otherwise count them twice.
 
 ## `doi-verification.csv`
 
@@ -43,7 +43,7 @@ Retrieved by DOI content negotiation. Keys are normalised to `<firstauthor><year
 
 ## `notes/`
 
-Structured reviews written before the paper, one per subtopic, each organised as *Takeaway / Cited findings / Inferences / Gaps* with evidence grades. They are working notes: some findings were checked against abstracts only, and where the notes and the paper differ, the paper's more conservative statement governs.
+Structured reviews written before the paper, one per subtopic, each organised as *Takeaway / Cited findings / Inferences / Gaps* with evidence grades. They are working notes: some findings were checked against abstracts only, and where the notes and the paper differ, the paper's more conservative statement governs. They are preserved unchanged; statements superseded by later corrections are listed in [`CORRECTIONS.md`](../CORRECTIONS.md).
 
 | Note | Scope |
 |---|---|

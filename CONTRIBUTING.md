@@ -18,8 +18,9 @@ This repository is built to be argued with. The most valuable contribution is ev
 
 3. **Separate what a study measured from what its authors inferred.** Report design, N, population and how causation is identified.
 4. **Flag WEIRD-only samples** and never let a national average describe an individual or a family.
-5. **No invented coefficients.** Formal components use symbolic parameters. Numbers in tests are arithmetic illustrations and are labelled as such.
-6. **Parental care is not romantic reciprocity.** Contributions must keep the asymmetry explicit.
+5. **Tests are not evidence.** A passing test shows the code implements an equation, not that the mechanism is true; a resolving DOI shows a citation points to the right work, not that the work supports the claim. Say which level of checking a contribution rests on.
+6. **No invented coefficients.** Formal components use symbolic parameters. Numbers in tests are arithmetic illustrations and are labelled as such.
+7. **Parental care is not romantic reciprocity.** Contributions must keep the asymmetry explicit.
 
 ## Workflow
 

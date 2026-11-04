@@ -151,7 +151,7 @@
   <text class="gt" x="12" y="550">OUTSIDE THE CARE CALCULUS</text>
   <rect class="lim" x="12" y="558" width="228" height="56" rx="6"/>
   <text class="nt" x="24" y="580">Safety</text>
-  <text class="ns" x="24" y="599">a gate: care never offsets harm</text>
+  <text class="ns" x="24" y="599">unsafe options excluded, not outranked</text>
   <rect class="lim" x="252" y="558" width="228" height="56" rx="6"/>
   <text class="nt" x="264" y="580">Autonomy</text>
   <text class="ns" x="264" y="599">a separate outcome, not netted</text>

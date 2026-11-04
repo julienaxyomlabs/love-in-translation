@@ -18,3 +18,4 @@ A formal framework is only as checkable as its arithmetic. Readers should be abl
 
 - The implementation favours clarity over speed; it is a reference, not an estimation library. Fitting real dyadic data belongs in established tools (multilevel and dynamic SEM software) using the specifications in the paper.
 - Contributors adding a component must add the test that pins its claim.
+- **Tests are not validation** (added in v0.2.0). Passing tests shows that the code implements the stated equations, that mathematical identities hold, and that the RSA code reproduces published worked examples (Edwards 2007; Schönbrodt, Humberg & Nestler 2018). It does not show that any psychological mechanism is true. Likewise, a DOI that resolves with matching metadata shows that a citation points to the right work, not that the work supports every claim attributed to it.

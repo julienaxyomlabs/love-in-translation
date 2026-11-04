@@ -1,6 +1,8 @@
 # ADR-0005: Safety is a lexicographic gate, not a weighted variable
 
-- **Status:** accepted
+> **Superseded.** A lexicographic order ranks unsafe options instead of excluding them: when every option is unsafe it still picks one. [ADR-0009](0009-safety-as-admissibility-constraint.md) replaces it with an admissibility constraint. This record is kept unchanged below as the decision that was made in v0.1.0.
+
+- **Status:** superseded by [ADR-0009](0009-safety-as-admissibility-constraint.md) on 2026-11-04 (v0.2.0)
 - **Date:** 2026-11-04
 - **Paper:** [§8.10 Constraints that are not weights](../../paper/08-mathematical-representation.md), [§15 Counterexamples](../../paper/15-counterexamples.md)
 - **Code:** [`constraints.py`](../../src/love_translation/constraints.py), [`test_constraints.py`](../../tests/test_constraints.py)

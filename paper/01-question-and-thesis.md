@@ -32,12 +32,12 @@ These are the conditions under which "translation" earns its place as an explana
 ## What is original here, and what is not
 
 The empirical findings in Sections 3–6 come from the published literature and are tagged by strength. The following propositions are this paper's own and are **untested** [Our hypothesis]. Each is introduced where it is used.
-1. **A two-path decomposition of care.** A substantive path delivers benefit whether or not it is perceived. A symbolic path is the receiver's inference about how much the giver values them.
+1. **A two-path decomposition of care.** A substantive path delivers benefit whether or not it is perceived. A symbolic path is the receiver's inference about how much the giver values them. The paths are routes of effect, not kinds of acts: any act, provision or presence, can travel both.
 2. **A six-way typology of misalignment.** Undetected care, misconstrued care, mis-targeted care, capacity-limited care, incompatibility, and unsafe or coercive patterns. It sits alongside a seventh, non-translation cause: too little love or commitment.
 3. **A visibility asymmetry.** The costs of some care, such as long working hours, are invisible while its by-products, such as absence, are highly visible. Combined with how people infer how much another values them, this predicts systematic underestimation of the giver's regard.
 4. **A developmental-lag model.** A parent's model of a child's needs updates at a rate set by contact and disclosure. Lag grows when needs change quickly.
 5. **Care-type-dependent giver error.** Givers overvalue costly or material provision and undervalue brief warm expression.
-6. **Safety and compatibility as constraints rather than weighted variables.** Safety is treated as a strict precondition evaluated before any care score, and incompatibility as an empty set of feasible joint arrangements.
+6. **Safety and compatibility as constraints rather than weighted variables.** Safety is an admissibility constraint: unsafe arrangements are excluded before any comparison, and if none is safe the model recommends nothing. Incompatibility is an empty set of feasible joint arrangements.
 7. **A filial-piety marker for failure of the symbolic path.** When provision is not read as regard, gratitude-based (reciprocal) filial piety should weaken while duty-based (authoritarian) filial piety stays intact.
 
 ---

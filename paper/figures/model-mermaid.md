@@ -51,7 +51,7 @@ flowchart LR
   Y -->|feedback via gratitude, complaint and disclosure| M
   Y -->|feedback| L
   Y -->|feedback| P0
-  SAFE -.->|gates the evaluation| Y
+  SAFE -.->|excludes unsafe arrangements first| Y
   AUT -.->|separate outcome, not netted| Y
   POW -.->|moderates who adapts| E
   POW -.->|moderates who reinterprets| K

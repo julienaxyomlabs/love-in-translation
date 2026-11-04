@@ -43,13 +43,13 @@ The revised model does not choose among them. It includes all of these arrows, s
 
 ## Two routes by which care acts [Our hypothesis]
 
-The model distinguishes two routes from enacted care to outcomes.
-- **Substantive route.** Care changes the receiver's circumstances or capacities (money, practical help, regulatory support), and its benefits arrive whether or not they are perceived as love. Evidence that this route exists: invisible support predicts adjustment and goal attainment without being noticed ([Bolger, Zuckerman & Kessler 2000](https://doi.org/10.1037/0022-3514.79.6.953); [Girme, Overall & Simpson 2013](https://doi.org/10.1177/0146167213497802)), and income improves children's behavioural and educational outcomes ([Akee et al. 2010](https://doi.org/10.1257/app.2.1.86); [Cooper & Stewart 2021](https://doi.org/10.1007/s12187-020-09782-0)) [Moderate to Established].
-- **Symbolic route.** Care is read as information about how much the giver values the receiver, and its effects run through perceived regard. Evidence: gratitude depends on perceived, not actual, sacrifice ([Visserman et al. 2019](https://doi.org/10.1177/1948550618757599)), and perceived acceptance predicts adjustment across cultures ([Khaleque & Rohner 2002](https://doi.org/10.1111/j.1741-3737.2002.00054.x)).
+The model distinguishes two routes from enacted care to outcomes. **The routes are pathways of effect, not kinds of acts**: the same act can travel both. Money can change circumstances and also communicate devotion; presence can meet a real need for company, co-regulation or being known whether or not it is read as love, and can also signal regard.
+- **Substantive route.** An act changes the receiver's circumstances, capacities or need states, and its benefits arrive whether or not they are perceived as love. Evidence that this route exists: invisible support predicts adjustment and goal attainment without being noticed ([Bolger, Zuckerman & Kessler 2000](https://doi.org/10.1037/0022-3514.79.6.953); [Girme, Overall & Simpson 2013](https://doi.org/10.1177/0146167213497802)), and income improves children's behavioural and educational outcomes ([Akee et al. 2010](https://doi.org/10.1257/app.2.1.86); [Cooper & Stewart 2021](https://doi.org/10.1007/s12187-020-09782-0)) [Moderate to Established].
+- **Symbolic route.** An act is read as information about how much the giver values the receiver, and its effects run through perceived regard. Evidence: gratitude depends on perceived, not actual, sacrifice ([Visserman et al. 2019](https://doi.org/10.1177/1948550618757599)), and perceived acceptance predicts adjustment across cultures ([Khaleque & Rohner 2002](https://doi.org/10.1111/j.1741-3737.2002.00054.x)).
 
-The original contribution is the claim that the two routes have **different outcome signatures** and can **succeed or fail independently** [Our hypothesis]:
+The original contribution is the claim that the two routes have **different outcome signatures** and can **succeed or fail independently for the same act** [Our hypothesis]:
 - The substantive route should show mainly in material, behavioural and educational outcomes. Casino income reduced children's conduct problems but not anxiety or depression ([Costello et al. 2003](https://doi.org/10.1001/jama.290.15.2023)).
-- The symbolic route should show mainly in emotional well-being and relationship evaluation. Perceived emotional support, but not perceived financial support, related to adolescent distress ([Chentsova Dutton, Choi & Choi 2020](https://doi.org/10.3389/fpsyg.2020.00353)).
+- The symbolic route should show mainly in emotional well-being and relationship evaluation. A related finding classifies acts rather than routes: perceived emotional support, but not perceived financial support, related to adolescent distress in four countries ([Chentsova Dutton, Choi & Choi 2020](https://doi.org/10.3389/fpsyg.2020.00353); cross-sectional, weak financial-support scale) [Preliminary]. It is consistent with the route distinction but cannot test it, because each kind of support can act through both routes.
 
 The routes are not independent in reality. Income can improve children's emotional health by improving parents' relationships ([Akee et al. 2018](https://doi.org/10.1257/aer.20160133)). Visible support can turn the symbolic route negative by signalling the receiver's inefficacy ([Bolger & Amarel 2007](https://doi.org/10.1037/0022-3514.92.3.458)).
 
@@ -96,7 +96,7 @@ Text version of Figure 1:
                                                  (SUBSTANTIVE route) -----------------------------------------^
  FEEDBACK (both people): outcomes --> gratitude/complaint/disclosure --> A's model of B, A's love, B's priors
  CONSTRAINTS (outside the care calculus):
-   SAFETY gates every evaluation | AUTONOMY is a separate outcome | POWER moderates who adapts and who reinterprets
+   SAFETY excludes unsafe arrangements first | AUTONOMY is a separate outcome | POWER moderates who adapts and who reinterprets
    COMPATIBILITY: if no joint pattern meets both people's essential needs, no amount of care closes the gap
  SYMMETRY: B gives to A through the mirror-image structure at the same time.
 ```
@@ -113,7 +113,7 @@ Text version of Figure 1:
 | Visibility of *cost* as a distinct determinant of perceived regard | **Our hypothesis**, built on a Theoretical mechanism (the naïve utility calculus) |
 | The seven-type typology of misalignment | **Our hypothesis** |
 | Developmental lag in the giver's model of needs | **Our hypothesis**, consistent with Theoretical expectancy-violation accounts |
-| Safety as a gate; compatibility as feasibility | **Our hypothesis** in formalization; Moderate evidence that the underlying harms are not offset by love |
+| Safety as an admissibility constraint; compatibility as feasibility | **Our hypothesis** in formalization (the safety threshold is partly normative); Moderate evidence that the underlying harms are not offset by love |
 
 ---
 

@@ -6,7 +6,7 @@ The framework was stress-tested against the [brief](../docs/research-brief.md)'s
 |---|---|---|---|
 | A. Perfect understanding, incompatible lives | **Yes, by construction** | Compatibility as feasibility ($`\mathcal{F} = \varnothing`$), separate from translation | Measure essential requirements $`G`$ reliably |
 | B. Manipulative responsiveness | **Partly** | Motive inference; giver motives measured separately; repeated, behaviour-anchored assessment | Detect manufactured responsiveness from the receiver's reports alone |
-| C. Love and abuse | **Only by excluding it from the care calculus** | Safety gate; perception treated as a biased, capturable sensor | Explain abuse as translation (it is not) |
+| C. Love and abuse | **Only by excluding it from the care calculus** | Safety admissibility constraint (unsafe arrangements excluded, not outranked); perception treated as a biased, capturable sensor | Explain abuse as translation (it is not) |
 | D. Parental love with autonomy violation | **Yes** | Autonomy as a separate outcome; construal moderated by domain legitimacy | Say how much cultural meaning should attenuate harm in a given family |
 | E. Good intentions, harmful outcomes | **Yes** | Context-dependent sign of care; mis-targeting; asymmetric loss | Specify the context function in advance |
 | F. Unsustainable needs | **Yes** | Giver sustainability threshold within $`\mathcal{F}`$; giver well-being as a separate outcome | Measure need load against capacity |
