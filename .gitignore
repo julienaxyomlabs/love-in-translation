@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Generated
+dist/
+
+# This repository is Markdown and Python only
+*.html
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
