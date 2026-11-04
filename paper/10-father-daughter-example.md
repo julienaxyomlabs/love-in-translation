@@ -1,0 +1,66 @@
+# 10. Worked Korean father–daughter example
+
+## A hypothetical dyad, not a portrait
+
+This section reasons about a *hypothetical* Korean father and adult daughter matching the [brief](../docs/research-brief.md)'s motivating example. It uses Korean population data only as context. National averages describe populations; they say nothing about whether this father worked long hours, whether this daughter wanted more talk, or whether this family resembles any other. Most Korean psychological studies cited below are cross-sectional, and many use data from 2010 or earlier, before the rapid changes of 2014–2024. Nothing here describes the family the author observed.
+
+## What population data say about the context
+
+Five sets of population figures frame the dyad:
+- **Working hours.** Korean workers averaged **1,833 hours in 2025**, above the OECD average of **1,736** ([Korea JoongAng Daily, 2026](https://www.koreajoongangdaily.com/business/koreas-yearly-working-hours-fell-by-32-hours-last-year-but-remain-higher-than-oecd-average/12755382)) [Established; levels across countries are only indicative].
+- **Education spending.** Households spent **27.5 trillion won** on private education in 2025, a record **604,000 won per participating student per month**. Spending is steeply graded by income: 662,000 won in the highest bracket against 192,000 won in the lowest ([Newsis, 12 Mar 2026](https://www.newsis.com/view/NISX20260312_0003545284)) [Established]. Provision through education is a large, class-specific expression of parental investment.
+- **Fathers' care time.** It is rising fast. Among dual-earner parents aged 25–39, fathers' daily childcare rose from **47 minutes in 2014 to 1 hour 22 minutes in 2024**, against a stable 2 hours for mothers ([inews24, 19 Oct 2026](https://www.inews24.com/view/2016351)) [Established]. The widely repeated claim that Korean fathers spend "six minutes a day" with their children traces to OECD wire coverage from 2015. That figure counted narrowly defined childcare activities, not time with children, and is now obsolete ([Seoul Shinmun / Yonhap, 2015](https://m.seoul.co.kr/news/2015/10/19/20151019800067)).
+- **Conversation.** In 2020, **40.6%** of adolescents talked with their father for at least 30 minutes daily, against **76.2%** with their mother ([Kukinews, 2021](https://www.kukinews.com/article/view/kuk202104210278)) [Established, descriptive].
+- **Filial norms.** The share of Koreans who say *the family* should support elderly parents fell from **70.7% in 2002 to 18.2% in 2024**, with joint family–state–society responsibility now the majority view ([Hankyung, 2008](https://sgsg.hankyung.com/article/2008112745451); [SBS Biz, 2024](https://biz.sbs.co.kr/amp/article/20000201265)). Old-age income poverty is the OECD's highest, about **40% of people aged 66 and over**: 39.7% in the 2022 data used by the OECD's 2025 pensions report, and 39.8% for 2023, against an OECD average of 14.8% ([OECD Income Distribution Database](https://sdmx.oecd.org/public/rest/data/OECD.WISE.INE,DSD_WISE_IDD@DF_IDD,/KOR+JPN+USA+FRA+DEU+OECD.A.PR_INC_DISP......?startPeriod=2018&format=csvfilewithlabels); [Korea Times, 2026](https://koreatimes.co.kr/southkorea/20260711/elderly-poverty-rate-falls-below-40-percent-for-first-time-but-still-highest-in-the-oecd)) [Established].
+
+Korean fathers' expectations have been described, in a small qualitative study after the 1997–98 crisis, as "contradictory and often ambiguous": Confucian fatherhood, work success as the measure of a good father, and a newer ideal combining providing with caregiving ([Kwon & Roy 2007](https://doi.org/10.3138/jcfs.38.2.285)) [Preliminary; dated]. "Compressed modernity" ([Chang 1999](https://doi.org/10.1080/03085149900000023)) predicts that such scripts coexist within one family across generations [Theoretical].
+
+## Tracing the care through the model
+
+**Love and intention.** Nothing in the brief suggests the father's love or intention is low. In the model, his $`\mathbf{L}`$ and $`I`$ are high, concentrated in the financial-provision channel.
+
+**Capacity.** Long hours constrain the time and presence channels. His enacted care is shaped by $`\mathcal{C}`$ as much as by preference: market work hours predicted less paternal childcare in every wave of Korean time-use data ([Lee & Seo 2021](https://doi.org/10.22626/jkfrma.2021.25.3.007)) [Moderate/mixed].
+
+**Visibility.** Provision is the archetype of care whose *costs* are invisible. Providing has been described as a form of involvement families tend not to see ([Christiansen & Palkovitz 2001](https://doi.org/10.1177/019251301022001004)) [Theoretical]. Its by-product, absence, is highly visible. The visibility asymmetry of [Section 8.6](08-mathematical-representation.md) then predicts that the daughter's inferred valuation, her estimate of $`w`$, falls below his true valuation unless she knows what the provision cost and what constrained him. The prediction is stronger still if she attributes his working to his own ambitions rather than to providing for her [Our hypothesis].
+
+**Construal: which component of responsiveness fails.** Provision can signal *caring*, concern for her welfare, without signalling *understanding* or *validation*. "You were never there" may specifically express a deficit in perceived understanding [Our hypothesis]. Two Korean findings point in this direction. Children's perceived empathy of *fathers* depended mainly on whether communication was person-oriented or role-oriented, while for *mothers* it depended on the level of caring ([Lee 1999](https://www.accesson.kr/kcpa/v.11/1/131/25201)) [Preliminary; old, sample unknown]. Even an indigenous-psychology review emphasizing parental sacrifice reported that Korean students rank *emotional* rather than informational support as most important ([Kim & Park 2006](https://doi.org/10.1080/00207590544000068)) [Moderate/mixed; dated]. The studies it draws on measured students' self-reports, mostly cross-sectionally, so the review's causal language about sacrifice, indebtedness and achievement is the authors' inference. The obstacle to testing this is that respondents may not separate caring from understanding on current scales ([Crasta et al. 2021](https://doi.org/10.1037/pas0000986)). An item-level or component-specific measure would be needed.
+
+**Two routes.** On the substantive route, his provision plausibly worked: income and educational investment improve children's educational and behavioural outcomes, most clearly at lower incomes ([Cooper & Stewart 2021](https://doi.org/10.1007/s12187-020-09782-0); [Park, Byun & Kim 2011](https://doi.org/10.1177/0038040710392719)) [Moderate to Established]. On the symbolic route it may have failed. Korean adolescents report *more* financial support but *less* emotional support than US adolescents. Across four countries, perceived financial support was unrelated to distress, while emotional support predicted lower distress ([Chentsova Dutton, Choi & Choi 2020](https://doi.org/10.3389/fpsyg.2020.00353)) [Preliminary]. Both sincere statements can therefore be true at once. "I gave you everything" describes the substantive ledger, and "you were never there" describes the symbolic one.
+
+**Giver error depends on the type of care.** US experiments suggest givers overvalue costly material gifts ([Flynn & Adams 2009](https://doi.org/10.1016/j.jesp.2008.11.003)) and *underestimate* the impact of brief warm expressions ([Kumar & Epley 2018](https://doi.org/10.1177/0956797618772506); [Dungan, Munguia Gomez & Epley 2022](https://doi.org/10.1177/09567976221082942)). Applied to the father, this predicts both that he overestimates how much provision registers as love and that he under-supplies warm expression because he expects it to matter little [Our hypothesis; Moderate/mixed base, with no non-US replication]. One complication: people underestimate their *own* sacrifice costs ([Visserman et al. 2021](https://doi.org/10.1177/1948550619896671)), so he may not experience his provision as the sacrifice the daughter would need to see to read it as love.
+
+**Developmental lag.** If his contact was low during her adolescence, the period when autonomy needs change fastest, the lag model ($`e^* = r/\lambda`$) predicts that his model of her needs stayed calibrated to a younger child. That makes his care increasingly mis-targeted: more provision and direction, less attunement to autonomy and understanding [Our hypothesis].
+
+**Feedback in both directions.** His care going uncredited is costly to him: unrecognized givers lose satisfaction ([Visserman et al. 2019](https://doi.org/10.1177/1948550618757599)). Her withdrawal reduces disclosure, which lowers $`\lambda`$ and widens the lag. His frustration ("after everything I gave") may be read by her as conditional regard. Even *positive* conditional regard carries emotional costs ([Roth et al. 2009](https://doi.org/10.1037/a0015272)) [Moderate/mixed]. This is a plausible self-reinforcing loop. It is not evidence of a tipping point.
+
+**A marker in filial piety** [Our hypothesis]. If the symbolic route failed, her gratitude-based (*reciprocal*) filial piety should be weaker than her duty-based (*authoritarian*) filial piety. Reciprocal filial piety is negatively associated with mental-health problems among Chinese and Korean adolescents ([Han & Cheung 2025](https://doi.org/10.1007/s40894-024-00234-2)). Perceived paternal sacrifice related to life satisfaction partly through reciprocal filial piety in poor Hong Kong adolescents ([Leung & Shek 2020](https://doi.org/10.1007/s11482-018-9678-0)) [Preliminary]. Korean filial piety separates empirically into behavioural and emotional factors ([Sung 1995](https://doi.org/10.1093/geront/35.2.240)).
+
+## Rival explanations that must be ruled out first
+
+A translation account of this family is credible only after seven rivals are excluded:
+1. **Quality, not translation.** She recognizes his provision as love yet feels unaccepted because of coldness, hostility or indifference, the core dimensions of perceived rejection ([Rohner, Khaleque & Cournoyer 2005](https://doi.org/10.1525/eth.2005.33.3.299)).
+2. **Autonomy violation, not translation.** Achievement pressure or psychological control. Achievement-oriented control was associated with more depressive symptoms in South Korean youth even alongside higher grades ([Zhang et al. 2023](https://doi.org/10.1007/s10964-023-01845-z)), and its harm generalizes across cultures ([Soenens et al. 2012](https://doi.org/10.1016/j.adolescence.2011.05.001)).
+3. **Child effects.** Her earlier distress elicited less warmth ([Rothenberg et al. 2020](https://doi.org/10.1017/s0954579419001214)).
+4. **Normative adolescence.** A temporary, normative dip in perceived support ([De Goede, Branje & Meeus 2009](https://doi.org/10.1007/s10964-008-9286-7)).
+5. **Family economic stress.** Stress eroding parenting ([Conger, Conger & Martin 2010](https://doi.org/10.1111/j.1741-3737.2010.00725.x)).
+6. **Retrospective reconstruction** on both sides ([Karney & Coombs 2000](https://doi.org/10.1177/01461672002610006)).
+7. **Egocentric availability.** He remembers his own acts better than she does, while she remembers her needs and his absences ([Ross & Sicoly 1979](https://doi.org/10.1037/0022-3514.37.3.322)).
+
+## What would falsify or support the translation account here
+
+| Result | Implication |
+|---|---|
+| She credits his provision as love, and her low perceived acceptance tracks coldness or hostility | Not translation; amount or quality |
+| Coaching him to add verbal affection, without more attentiveness, leaves her perceived acceptance unchanged | Undercuts a "wrong channel" account |
+| Her low perceived warmth followed her own distress in time | Child effect |
+| The mismatch disappears once family economic stress is resolved | Stress, not meaning |
+| Telling her the costs and constraints behind his provision raises her perceived regard with no change in his behaviour | **Supports** symbolic-route translation |
+| His intended acceptance (parent-report scales) is high, while her perceived acceptance is low only on dimensions carried by culturally variable signals | **Supports** translation of peripheral signals |
+
+## Responsibility runs one way
+
+The model assigns no repayment obligation to the daughter. Parental care is communal and asymmetric ([Section 2](02-definitions-and-distinctions.md)). Expecting repayment is associated with psychological control in Korean adolescents ([Choe, Schoppe-Sullivan & Lee 2026](https://doi.org/10.1177/00332941251415323)) [Preliminary]. If repair is sought, the model locates its levers mainly on the parent's side: making costs and constraints visible, adding attentive presence in the channels she values, and updating his model of who she now is. Her recognition of his provision might relieve *his* uncredited-giver cost and buffer her own distress, as appreciation of parental sacrifice buffered warmth gaps in Chinese American youth ([Wu & Chao 2011](https://doi.org/10.1037/a0021063)). But that is an option she holds, not a debt she owes.
+
+---
+
+**Navigation:** [← The model without math](09-model-without-math.md) · [Contents](README.md) · [Romantic-partner example →](11-romantic-partner-example.md)

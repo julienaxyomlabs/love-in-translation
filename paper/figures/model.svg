@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="624" viewBox="0 0 960 624" role="img" aria-labelledby="t">
+  <title id="t">Revised model of how care moves from A to B: two routes, feedback, and four constraints outside the care calculus</title>
+  <style>
+  .bg { fill: #ffffff; }
+  text { fill: #18202e; font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .nt { font-size: 13px; font-weight: 600; }
+  .ns { font-size: 11.5px; fill: #4b5567; }
+  .ns2 { font-size: 12.5px; }
+  .gt { font-size: 11px; font-weight: 700; letter-spacing: .09em; fill: #4b5567; }
+  .al { font-size: 11.5px; font-style: italic; fill: #4b5567; }
+  .n { fill: #fbfcfd; stroke: #b5becb; stroke-width: 1; }
+  .n.key { stroke: #18202e; stroke-width: 1.4; }
+  .n.key-sym { stroke: #2254ab; stroke-width: 1.8; }
+  .n.key-sub { stroke: #b4442c; stroke-width: 1.8; }
+  .grp { fill: none; stroke: #b5becb; stroke-dasharray: 4 4; }
+  .lim { fill: #e9ecf1; stroke: #b5becb; }
+  .ar { stroke: #4b5567; stroke-width: 1.3; fill: none; }
+  .fb { stroke: #4b5567; stroke-width: 1.3; stroke-dasharray: 5 4; fill: none; }
+  .sym { stroke: #2254ab; stroke-width: 2.4; fill: none; }
+  .sub { stroke: #b4442c; stroke-width: 2.4; fill: none; }
+  .mk { fill: #4b5567; } .mk-sym { fill: #2254ab; } .mk-sub { fill: #b4442c; } .dot { fill: #4b5567; }
+  .t-sym { fill: #2254ab; font-size: 12px; font-weight: 600; }
+  .t-sub { fill: #b4442c; font-size: 12px; font-weight: 600; }
+</style>
+<rect class="bg" x="0" y="0" width="960" height="624" rx="12"/>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="mk" d="M0 0 L10 5 L0 10 z"/></marker>
+    <marker id="ah-sym" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path class="mk-sym" d="M0 0 L10 5 L0 10 z"/></marker>
+    <marker id="ah-sub" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path class="mk-sub" d="M0 0 L10 5 L0 10 z"/></marker>
+  </defs>
+
+  <!-- feedback loop -->
+  <path class="fb" d="M838 92 V32 H196 V90" marker-end="url(#ah)"/>
+  <path class="fb" d="M466 32 V90" marker-end="url(#ah)"/>
+  <text class="al" x="517" y="24" text-anchor="middle">feedback to both people: gratitude, complaint, disclosure</text>
+
+  <!-- group frames -->
+  <rect class="grp" x="12" y="52" width="248" height="324" rx="10"/>
+  <text class="gt" x="24" y="74">PERSON A · GIVING</text>
+  <rect class="grp" x="384" y="52" width="328" height="440" rx="10"/>
+  <text class="gt" x="700" y="74" text-anchor="end">PERSON B · RECEIVING</text>
+
+  <!-- A: love components -->
+  <rect class="n" x="24" y="92" width="108" height="100" rx="6"/>
+  <text class="nt" x="78" y="114" text-anchor="middle">Love</text>
+  <text class="ns" x="78" y="136" text-anchor="middle">affection</text>
+  <text class="ns" x="78" y="152" text-anchor="middle">welfare motive</text>
+  <text class="ns" x="78" y="168" text-anchor="middle">commitment</text>
+  <text class="ns" x="78" y="184" text-anchor="middle">attachment</text>
+
+  <!-- A: model of B's needs -->
+  <rect class="n" x="144" y="92" width="104" height="100" rx="6"/>
+  <text class="nt" x="196" y="114" text-anchor="middle">A's model of</text>
+  <text class="nt" x="196" y="130" text-anchor="middle">B's needs</text>
+  <text class="ns" x="196" y="152" text-anchor="middle">updated by</text>
+  <text class="ns" x="196" y="168" text-anchor="middle">contact and</text>
+  <text class="ns" x="196" y="184" text-anchor="middle">disclosure</text>
+
+  <!-- A: intention, capacity -->
+  <rect class="n" x="24" y="212" width="108" height="64" rx="6"/>
+  <text class="nt" x="78" y="238" text-anchor="middle">Intention</text>
+  <text class="ns" x="78" y="256" text-anchor="middle">to care</text>
+  <rect class="n" x="144" y="212" width="104" height="64" rx="6"/>
+  <text class="nt" x="196" y="234" text-anchor="middle">Capacity</text>
+  <text class="ns" x="196" y="251" text-anchor="middle">time, money,</text>
+  <text class="ns" x="196" y="267" text-anchor="middle">energy, stress</text>
+
+  <!-- A: enacted care -->
+  <rect class="n key" x="24" y="300" width="224" height="64" rx="6"/>
+  <text class="nt" x="136" y="326" text-anchor="middle">Enacted care</text>
+  <text class="ns" x="136" y="346" text-anchor="middle">time · talk · touch · help · money</text>
+
+  <path class="ar" d="M78 192 V210" marker-end="url(#ah)"/>
+  <path class="ar" d="M170 192 L124 210" marker-end="url(#ah)"/>
+  <path class="ar" d="M78 276 V298" marker-end="url(#ah)"/>
+  <path class="ar" d="M196 276 V298" marker-end="url(#ah)"/>
+
+  <!-- channel -->
+  <rect class="n" x="276" y="300" width="92" height="64" rx="6"/>
+  <text class="nt" x="322" y="324" text-anchor="middle">Visibility</text>
+  <text class="ns" x="322" y="341" text-anchor="middle">of the act</text>
+  <text class="ns" x="322" y="357" text-anchor="middle">and its cost</text>
+
+  <!-- B: priors, trust -->
+  <rect class="n" x="396" y="92" width="140" height="64" rx="6"/>
+  <text class="nt" x="466" y="114" text-anchor="middle">Perceiver priors</text>
+  <text class="ns" x="466" y="132" text-anchor="middle">projection, mood,</text>
+  <text class="ns" x="466" y="148" text-anchor="middle">attachment, culture</text>
+  <rect class="n" x="552" y="92" width="136" height="64" rx="6"/>
+  <text class="nt" x="620" y="118" text-anchor="middle">Trust</text>
+  <text class="ns" x="620" y="138" text-anchor="middle">a slow-moving state</text>
+
+  <!-- B: symbolic chain -->
+  <rect class="n" x="396" y="300" width="88" height="64" rx="6"/>
+  <text class="nt" x="440" y="324" text-anchor="middle">Detection</text>
+  <text class="ns" x="440" y="341" text-anchor="middle">hit, miss,</text>
+  <text class="ns" x="440" y="357" text-anchor="middle">false alarm</text>
+  <rect class="n" x="504" y="300" width="88" height="64" rx="6"/>
+  <text class="nt" x="548" y="324" text-anchor="middle">Construal</text>
+  <text class="ns" x="548" y="341" text-anchor="middle">meaning</text>
+  <text class="ns" x="548" y="357" text-anchor="middle">and motive</text>
+  <rect class="n key-sym" x="612" y="300" width="88" height="64" rx="6"/>
+  <text class="nt" x="656" y="324" text-anchor="middle">Perceived</text>
+  <text class="nt" x="656" y="340" text-anchor="middle">regard</text>
+  <text class="ns" x="656" y="357" text-anchor="middle">felt love</text>
+
+  <!-- B: needs and fulfilment -->
+  <rect class="n" x="396" y="412" width="140" height="64" rx="6"/>
+  <text class="nt" x="466" y="438" text-anchor="middle">B's needs</text>
+  <text class="ns" x="466" y="456" text-anchor="middle">change over time</text>
+  <rect class="n key-sub" x="552" y="412" width="148" height="64" rx="6"/>
+  <text class="nt" x="626" y="438" text-anchor="middle">Need fulfilment</text>
+  <text class="ns" x="626" y="456" text-anchor="middle">needs actually met</text>
+
+  <!-- B: influence arrows -->
+  <path class="ar" d="M440 156 V298" marker-end="url(#ah)"/>
+  <text class="al" x="446" y="232">noticing</text>
+  <path class="ar" d="M512 156 L536 298" marker-end="url(#ah)"/>
+  <path class="ar" d="M592 156 L566 298" marker-end="url(#ah)"/>
+  <text class="al" x="551" y="214" text-anchor="middle">reading</text>
+  <path class="ar" d="M656 300 V158" marker-end="url(#ah)"/>
+  <text class="al" x="662" y="232">updates</text>
+  <path class="ar" d="M536 444 H550" marker-end="url(#ah)"/>
+
+  <!-- symbolic route -->
+  <path class="sym" d="M248 332 H274" marker-end="url(#ah-sym)"/>
+  <path class="sym" d="M368 332 H394" marker-end="url(#ah-sym)"/>
+  <path class="sym" d="M484 332 H502" marker-end="url(#ah-sym)"/>
+  <path class="sym" d="M592 332 H610" marker-end="url(#ah-sym)"/>
+  <path class="sym" d="M700 332 H726" marker-end="url(#ah-sym)"/>
+  <text class="t-sym" x="322" y="388" text-anchor="middle">symbolic route</text>
+
+  <!-- substantive route -->
+  <path class="sub" d="M136 364 V508 H626 V478" marker-end="url(#ah-sub)"/>
+  <path class="sub" d="M700 444 H726" marker-end="url(#ah-sub)"/>
+  <text class="t-sub" x="148" y="528">substantive route: needs met whether or not anyone notices</text>
+
+  <!-- outcomes -->
+  <rect class="n" x="728" y="92" width="220" height="384" rx="6"/>
+  <text class="nt" x="744" y="118">Outcomes</text>
+  <text class="ns" x="744" y="136">kept separate, for both people</text>
+  <circle class="dot" cx="747" cy="172" r="2.5"/><text class="ns2" x="758" y="176">B's well-being</text>
+  <circle class="dot" cx="747" cy="200" r="2.5"/><text class="ns2" x="758" y="204">B's satisfaction</text>
+  <circle class="dot" cx="747" cy="228" r="2.5"/><text class="ns2" x="758" y="232">A's well-being</text>
+  <circle class="dot" cx="747" cy="256" r="2.5"/><text class="ns2" x="758" y="260">A's felt credit</text>
+  <circle class="dot" cx="747" cy="284" r="2.5"/><text class="ns2" x="758" y="288">Commitment</text>
+  <circle class="dot" cx="747" cy="312" r="2.5"/><text class="ns2" x="758" y="316">Stability</text>
+
+  <!-- constraints -->
+  <text class="gt" x="12" y="550">OUTSIDE THE CARE CALCULUS</text>
+  <rect class="lim" x="12" y="558" width="228" height="56" rx="6"/>
+  <text class="nt" x="24" y="580">Safety</text>
+  <text class="ns" x="24" y="599">a gate: care never offsets harm</text>
+  <rect class="lim" x="252" y="558" width="228" height="56" rx="6"/>
+  <text class="nt" x="264" y="580">Autonomy</text>
+  <text class="ns" x="264" y="599">a separate outcome, not netted</text>
+  <rect class="lim" x="492" y="558" width="228" height="56" rx="6"/>
+  <text class="nt" x="504" y="580">Power and dependence</text>
+  <text class="ns" x="504" y="599">who adapts, who reinterprets</text>
+  <rect class="lim" x="732" y="558" width="216" height="56" rx="6"/>
+  <text class="nt" x="744" y="580">Compatibility</text>
+  <text class="ns" x="744" y="599">is any shared life feasible?</text>
+</svg>
