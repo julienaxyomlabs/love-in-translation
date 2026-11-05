@@ -11,7 +11,7 @@ The protocol tests the frozen framework of *Can Love Be Lost in Translation?* (v
 3. need fulfilment predicts outcomes;
 4. existing trust or attachment explains the apparent translation effect.
 
-The framework distinguishes love intended, expressed, perceived and received from relationship compatibility. It writes these links as ten components (`README.md`, "Model at a glance"; `paper/08-mathematical-representation.md` §8.4–8.10). The protocol refers to them by number:
+The framework distinguishes love intended, expressed, perceived and received from relationship compatibility. It writes these links as ten components (`README.md`, "The model"; `paper/08-mathematical-representation.md` §8.4–8.10). The protocol refers to them by number:
 
 | No. | Component | Content |
 |---|---|---|

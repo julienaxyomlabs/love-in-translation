@@ -39,7 +39,7 @@ not translation at all  incompatible goals · unsustainable demands · coercion
 - [Evidence audit and study protocol](#evidence-audit-and-study-protocol)
 - [Repository layout](#repository-layout)
 - [Quickstart](#quickstart)
-- [Model at a glance](#model-at-a-glance)
+- [The model](#the-model)
 - [The model in code](#the-model-in-code)
 - [Command line](#command-line)
 - [Evidence as data](#evidence-as-data)
@@ -122,11 +122,11 @@ make dois           # re-resolve every DOI against Crossref (network)
 
 No runtime dependencies. Python ≥ 3.9. `make help` lists every target.
 
-## Model at a glance
+## The model
 
 > **Status: a theoretical framework, not an empirically validated model.** No data have been collected to test it, every parameter below is unknown and nothing has been estimated. The unit tests check that the code implements these equations and reproduces published worked examples; they do not show that any mechanism is true. Resolving all cited DOIs shows the references point to the right works, not that each work supports every claim attributed to it.
 
-![The model at a glance: ten components, two routes, compatibility and safety](paper/figures/model-at-a-glance.png)
+![The formal model: ten equations, two routes of care, and the compatibility and safety constraints](paper/figures/model-equations.png)
 
 The model runs in both directions at once (swap A and B). For care from A to B at occasion $`t`$:
 
@@ -145,7 +145,7 @@ The model runs in both directions at once (swap A and B). For care from A to B a
 \end{aligned}
 ```
 
-Canonical version with derivations: [chapter 8](paper/08-mathematical-representation.md#model-at-a-glance).
+Canonical version with derivations: [chapter 8](paper/08-mathematical-representation.md#the-model-in-ten-equations).
 
 ### What each equation says, and how well it is supported
 

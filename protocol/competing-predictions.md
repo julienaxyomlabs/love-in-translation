@@ -8,7 +8,7 @@ This part asks three questions about the translation framework of *Can Love Be L
 2. Which observations would favour one model over another?
 3. Where can no realistic design tell them apart?
 
-The framework is treated as frozen. Its chain of distinctions holds that love intended ≠ love expressed ≠ love perceived ≠ love received ≠ relationship compatibility. For care from A to B at occasion $`t`$, the chain is written as ten components (`README.md`, "Model at a glance"; `paper/08-mathematical-representation.md` §8.4–8.10):
+The framework is treated as frozen. Its chain of distinctions holds that love intended ≠ love expressed ≠ love perceived ≠ love received ≠ relationship compatibility. For care from A to B at occasion $`t`$, the chain is written as ten components (`README.md`, "The model"; `paper/08-mathematical-representation.md` §8.4–8.10):
 
 ```math
 \begin{aligned}

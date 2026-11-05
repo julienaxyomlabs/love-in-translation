@@ -1,10 +1,10 @@
 # 8. A mathematically rigorous representation, with explicit assumptions
 
-## Model at a glance
+## The model in ten equations
 
 > **Status: a structural hypothesis, not a validated model.** Every parameter below is unknown and nothing has been estimated. The unit tests check that the code implements these equations and reproduces published worked examples; they do not show that any mechanism is true. Resolving all cited DOIs shows the references point to the right works, not that each work supports every claim attributed to it.
 
-![The model at a glance: ten components, two routes, compatibility and safety](figures/model-at-a-glance.png)
+![The formal model: ten equations, two routes of care, and the compatibility and safety constraints](figures/model-equations.png)
 
 The model runs in both directions at once (swap A and B). For care from A to B at occasion $`t`$:
 

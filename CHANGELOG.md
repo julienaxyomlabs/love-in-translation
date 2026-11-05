@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Changed
+
+- The model figure is redrawn as a typeset plate, `paper/figures/model-equations.png`, which replaces `model-at-a-glance.png`. It shows all ten equations in their v0.2.0 form, with the status of each, and states that the framework is theoretical and not empirically validated. The equations themselves are unchanged.
+- The sections formerly called "Model at a glance" are renamed "The model" in the README and "The model in ten equations" in chapter 8.
+
 ## [0.3.0] - 2026-11-05
 
 An evidence audit, competing predictions and a study protocol, asking which parts of the theory data can tell apart from simpler explanations. The equations are unchanged. The paper text was corrected wherever the audit found an overstatement, a wrong number or a misattribution, and every change is logged in [CORRECTIONS.md](CORRECTIONS.md).

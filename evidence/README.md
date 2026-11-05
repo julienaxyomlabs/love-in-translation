@@ -24,7 +24,7 @@ One JSON object per line, keys sorted, UTF-8.
 | `dois` | string[] | DOIs cited inside the claim's span |
 | `kind` | enum | `prose` (text ending in a tag) or `table-row` (row of a graded table) |
 
-A prose claim is the text between the previous tag and the current one, so a long paragraph can yield several claims. The legend table that defines the grades is excluded, and so is the "Model at a glance" summary in chapter 8, which restates claims graded in §8.4–8.10 and would otherwise count them twice.
+A prose claim is the text between the previous tag and the current one, so a long paragraph can yield several claims. The legend table that defines the grades is excluded, and so is the "The model in ten equations" summary at the top of chapter 8, which restates claims graded in §8.4–8.10 and would otherwise count them twice.
 
 ## `doi-verification.csv`
 

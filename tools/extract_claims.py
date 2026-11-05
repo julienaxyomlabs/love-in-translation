@@ -42,7 +42,7 @@ TAG_RE = re.compile(r"\[(Established|Moderate|Preliminary|Theoretical|Our hypoth
 KEYWORD_RE = re.compile(r"\b(Established|Moderate|Preliminary|Theoretical|Our hypothesis|Assumption)\b")
 DOI_RE = re.compile(r"10\.\d{4,9}/[^\s\"'`<>]+")
 GRADE_COLUMNS = {"tag", "overall grade", "status"}
-SUMMARY_SECTION = "Model at a glance"
+SUMMARY_SECTION = "The model in ten equations"
 
 
 def clean_doi(doi: str) -> str:
@@ -97,7 +97,7 @@ def blocks(path: Path) -> Iterator[Tuple[str, str, Optional[List[str]]]]:
     """Yield (heading, text, header_cells_or_None) for prose blocks and table rows."""
     heading = ""
     in_code = False
-    skipping = False  # the "Model at a glance" summary restates claims graded elsewhere
+    skipping = False  # the chapter 8 summary restates claims graded elsewhere
     header: Optional[List[str]] = None
     para: List[str] = []
 
