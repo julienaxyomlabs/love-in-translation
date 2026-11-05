@@ -20,7 +20,7 @@ constraints  Safety as an admissibility constraint; compatibility as a feasible 
 
 from . import constraints, detection, fit, inference, lag, linalg, similarity, trust, truth_bias
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 
 __all__ = [
     "constraints",

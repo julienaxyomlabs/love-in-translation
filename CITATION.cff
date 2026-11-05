@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If you use this work, please cite it as below."
 title: "love-in-translation: a falsification-first evidence review and formal model of how care moves between people"
 type: software
-version: 0.2.0
-date-released: 2026-11-04
+version: 0.3.0
+date-released: 2026-11-05
 authors:
   - family-names: Poulain
     given-names: Julien
@@ -15,9 +15,13 @@ abstract: >-
   Tests the hypothesis that love intended, expressed, perceived and received
   diverge, and that relationship problems stem from the translation of care
   rather than its amount. The repository contains a 22-chapter evidence review
-  with graded claims and Crossref-verified citations, a formal model of dyadic
-  care transmission, and a standard-library Python implementation whose tests
-  execute the model's mathematical claims.
+  with graded claims and citations whose DOIs resolve in Crossref (a
+  bibliographic check, not a check of the studies' conclusions), a theoretical
+  and empirically unvalidated model of dyadic care transmission, and a standard-library Python implementation whose tests
+  execute the model's mathematical claims. It adds a primary-source audit of
+  the paper's most consequential claims, falsifiable predictions against four
+  rival explanations, and a protocol for a dyadic longitudinal study (design
+  only; no data collected).
 keywords:
   - relationship science
   - perceived partner responsiveness
