@@ -134,7 +134,7 @@
   <!-- substantive route -->
   <path class="sub" d="M136 364 V508 H626 V478" marker-end="url(#ah-sub)"/>
   <path class="sub" d="M700 444 H726" marker-end="url(#ah-sub)"/>
-  <text class="t-sub" x="148" y="528">substantive route: needs met whether or not anyone notices</text>
+  <text class="t-sub" x="148" y="528">substantive route: effect not through perceived regard</text>
 
   <!-- outcomes -->
   <rect class="n" x="728" y="92" width="220" height="384" rx="6"/>

@@ -4,7 +4,7 @@
 
 This page lists the changes to the text of *Can Love Be Lost in Translation?* (version 0.2.0) that follow from a primary-source audit, carried out in November 2026, of its 20 most consequential empirical claims (C01–C20) and four supplementary claims (S1–S4).
 
-**These are recommendations, not yet applied.** In v0.3.0 the paper text is unchanged from v0.2.0, so every location below is current. Re-check locations after any edit that shifts lines.
+**Status: applied in v0.3.0.** Locations are `file:line` at the [v0.2.0 tag](https://github.com/julienaxyomlabs/love-in-translation/tree/v0.2.0), the version audited. How each recommendation was applied, with the corrected wording, is logged in [`CORRECTIONS.md`](../CORRECTIONS.md).
 
 **The mathematics needs no change.** The audit found no error in equations (1)–(10). Every correction concerns:
 - the evidence attached to an equation;

@@ -49,7 +49,7 @@ A further exploratory aim tests **whether care compensates for danger**. If it d
 
 ## The two experiments
 
-**The micro-randomized trial** runs in diary weeks 3–4 with consenting dyads. Each day the parent is randomized either to no prompt or to a prompt to express care, in the child's stated preferred channel or in another channel. Prompt intensity is randomized separately. Because both members consent to the scheme, there is no deception. Causal excursion effects of channel match and of intensity are estimated on the child's same-evening perceived care, with trust and stated importance as moderators ([Qian et al. 2022](https://doi.org/10.1037/met0000283)).
+**The micro-randomized trial** runs in diary weeks 3–4 with consenting dyads. Each day the parent is randomized either to no prompt or to a prompt to express care, in the channel of the child's highest need reported the previous evening or in another channel. A stated preferred channel is not used, because fewer than half of one US sample had an identifiable primary love language ([Flicker, Sancier-Barbosa & Impett 2025](https://doi.org/10.1111/jmft.70078)). Consent discloses that prompts are chosen from the child's own reports, which a prompt can partly reveal. Prompt intensity is randomized separately. Because both members consent to the scheme, there is no deception. Causal excursion effects of channel match and of intensity are estimated on the child's same-evening perceived care, with trust and stated importance as moderators ([Qian et al. 2022](https://doi.org/10.1037/met0000283)).
 
 **The vignette experiment** recruits unrelated adults and family members in separate samples. It holds a provision act constant while varying information about its cost and the giver's constraints, testing H4 without involving any participant's own family.
 
@@ -69,7 +69,7 @@ A further exploratory aim tests **whether care compensates for danger**. If it d
 Across all hypotheses:
 - **Invariance.** Measurement invariance between Korea and the comparison country is tested before any mean comparison, by alignment if exact invariance fails.
 - **Predictive benchmark.** Out-of-sample prediction of 12-month *change* is benchmarked against perceived partner commitment, appreciation and satisfaction ([Joel et al. 2020](https://doi.org/10.1073/pnas.1917036117)).
-- **Sample size.** Numbers of dyads, families and days are set by simulation-based power analysis against pre-registered smallest effects of interest ([Lafit et al. 2021](https://doi.org/10.1177/2515245920978738)). Quadratic and interaction terms are notoriously underpowered ([Sommet et al. 2023](https://doi.org/10.1177/25152459231178728)), so planning should budget for several hundred dyads per country. No sample size is fixed here because it would be arbitrary without those simulations.
+- **Sample size.** Numbers of dyads, families and days are set by simulation-based power analysis against pre-registered smallest effects of interest ([Lafit et al. 2021](https://doi.org/10.1177/2515245920978738)). Interaction terms are typically underpowered ([Sommet et al. 2023](https://doi.org/10.1177/25152459231178728)), and quadratic terms need their own power simulation, so planning should budget for several hundred dyads per country. No sample size is fixed here because it would be arbitrary without those simulations.
 
 ## Confounders and the causal graph
 
@@ -87,7 +87,7 @@ Perceived care is treated as a possible collider, so it is not adjusted for when
 
 Couple and family research raises issues that standard regulations address poorly: confidentiality among members, consent with several members (including minors), shared data, harms to the family unit, and abuse reporting ([Margolin et al. 2005](https://doi.org/10.1037/0893-3200.19.1.157)) [Established]. The protocol therefore commits to six safeguards:
 1. **Confidentiality.** No member's responses are ever shown to another member. Each uses a separate device and account.
-2. **No deception.** No deceptive manipulation of messages attributed to real family members, because deceptive standard-note paradigms with real partners can do relational harm ([Collins & Feeney 2004](https://doi.org/10.1037/0022-3514.87.3.363)).
+2. **No deception.** No deceptive manipulation of messages attributed to real family members, because standard-note paradigms deceive participants about messages from real partners (the authors describe several deceptions and careful debriefing; [Collins & Feeney 2004](https://doi.org/10.1037/0022-3514.87.3.363)), and we infer a risk of relational harm.
 3. **Consent and assent.** Assent from minors and parental consent for them.
 4. **Safety first.** Safety screening, distress protocols, referral resources and disclosed reporting obligations. Any indicator of coercion or violence triggers safety procedures that override research aims.
 5. **Non-blaming framing.** Feedback and materials never frame abuse or control as a mutual "translation" problem.

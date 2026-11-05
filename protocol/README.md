@@ -16,6 +16,6 @@
 - **How safety is screened.** Each member is asked privately, and only about violence they experienced.
 - **What the route split can claim.** It is reported as bounded by sensitivity analysis, never as identified.
 
-Both documents state predictions as restrictions on the parameters of the frozen v0.2.0 equations and add no new theoretical equation.
+Both documents state predictions as restrictions on the parameters of the frozen v0.2.0 equations and add no new theoretical equation. They were written against the v0.2.0 text and cite its line numbers. The v0.3.0 corrections changed the paper's wording and evidence grades but not its equations, so the predictions and the design apply unchanged.
 
 The methods evidence behind the protocol is in [`evidence/notes/12-protocol-methods.md`](../evidence/notes/12-protocol-methods.md). It covers measures and their Korean validations, diary design, power tools, identification, ethics and Korean law.

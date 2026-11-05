@@ -261,7 +261,7 @@ The two claims that carry the model's most distinctive components are both abstr
 - "Invisible" means not *reported as support*, which is not the same as unperceived.
 - The samples were convenience samples.
 
-**Does it support the paper's interpretation?** **Overstated.** The paper accurately describes the 2000 finding at `paper/03-literature-review.md:30`. Elsewhere it treats the finding as established evidence that benefit occurs without perception, and as proof that a non-perceptual route "exists" (`paper/08-mathematical-representation.md:231`). The only comparable larger replication failed, and the original authors withdrew the simple message.
+**Does it support the paper's interpretation?** **Overstated.** The paper accurately describes the 2000 finding at `paper/03-literature-review.md:30`. Elsewhere it treats the finding as established evidence that benefit occurs without perception, and as proof that a non-perceptual route "exists" (`paper/08-mathematical-representation.md:231`). The only comparable larger replication failed, and the original authors backed off the simple take-home message. That is a failed replication of one result: it removes the paper's main evidence for the route but does not refute the mechanism.
 
 **Grade.** Mixed: an original diary pattern not reproduced in a larger sample using the same paradigm. Theoretical as evidence that a non-perceptual route exists.
 

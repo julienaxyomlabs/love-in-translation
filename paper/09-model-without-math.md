@@ -4,9 +4,9 @@ Think of every act of care as a parcel sent from one person to another. Five que
 
 **First, could it be sent?** Love can be present while the means are missing: time, money, energy, skill, or a calm enough day. A great deal of "absence" is a capacity problem, not a shortage of love.
 
-**Second, could it be seen?** Some care is loud, like a hug or a compliment. Some is silent, like overtime, a paid bill or a problem quietly solved. Silent care can help without ever being noticed. When it goes unnoticed, the giver gets no thanks and the receiver gets no message about being valued.
+**Second, could it be seen?** Some care is loud, like a hug or a compliment. Some is silent, like overtime, a paid bill or a problem quietly solved. Silent care may help even when it is not registered as support, although the evidence for this is mixed. When it goes unnoticed, the giver gets no thanks and the receiver gets no message about being valued.
 
-**Third, what did it seem to say?** The receiver does not just register the act; they read *why* it was done and how much it cost. The same act can mean "you matter to me", "this is my duty", "I don't trust you to manage" or "I'd rather be at work". The reading depends heavily on the reader: on their own love, mood, history and expectations, and on what the act usually means in their family and culture.
+**Third, what did it seem to say?** The receiver does not just register the act; they read *why* it was done and how much it cost. The same act can mean "you matter to me", "this is my duty", "I don't trust you to manage" or "I'd rather be at work". The reading depends partly on the reader: on their own love, history and expectations, and on what the act usually means in their family and culture.
 
 **Fourth, did it meet a real need, in the right amount and at the right time?** Too little leaves a need unmet. Too much, or the wrong kind, can feel intrusive or controlling.
 
