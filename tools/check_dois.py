@@ -15,6 +15,7 @@ import argparse
 import csv
 import json
 import re
+import socket
 import sys
 import time
 import urllib.error
@@ -37,15 +38,19 @@ def clean(doi: str) -> str:
     return doi
 
 
-def fetch_json(url: str) -> "tuple[int, Optional[dict]]":
+def fetch_json(url: str, attempts: int = 3) -> "tuple[int, Optional[dict]]":
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json"})
-    try:
-        with urllib.request.urlopen(request, timeout=30) as response:
-            return response.status, json.loads(response.read().decode("utf-8", "replace"))
-    except urllib.error.HTTPError as err:
-        return err.code, None
-    except (urllib.error.URLError, TimeoutError, ValueError):
-        return -1, None
+    for attempt in range(attempts):
+        try:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                return response.status, json.loads(response.read().decode("utf-8", "replace"))
+        except urllib.error.HTTPError as err:
+            return err.code, None
+        # socket.timeout only became an alias of TimeoutError in Python 3.10
+        except (urllib.error.URLError, TimeoutError, socket.timeout, ValueError):
+            if attempt + 1 < attempts:
+                time.sleep(2 * (attempt + 1))
+    return -1, None
 
 
 def resolve(doi: str) -> Dict[str, str]:
