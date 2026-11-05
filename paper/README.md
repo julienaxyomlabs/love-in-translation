@@ -4,6 +4,9 @@
 
 Read in order, or jump to the part you want to challenge. Every claim carries an evidence tag (see [Summary](00-summary.md#evidence-tags)); the same claims are available as data in [`../evidence/claims.jsonl`](../evidence/claims.jsonl). A single-file build is produced by `make paper` (written to `dist/paper.md`).
 
+> [!NOTE]
+> **Audit notice (v0.3.0).** The chapters below are the v0.2.0 text. A primary-source audit of 24 of the claims they rely on ([`../audit/`](../audit/README.md)) recommends 75 text corrections, listed in [`../audit/corrections.md`](../audit/corrections.md). They have not yet been applied. The equations need none.
+
 | § | Chapter | What it does |
 |---|---|---|
 | — | [Summary](00-summary.md) | Verdict in one page, and the evidence-tag legend |

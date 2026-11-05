@@ -21,6 +21,7 @@ This repository is built to be argued with. The most valuable contribution is ev
 5. **Tests are not evidence.** A passing test shows the code implements an equation, not that the mechanism is true; a resolving DOI shows a citation points to the right work, not that the work supports the claim. Say which level of checking a contribution rests on.
 6. **No invented coefficients.** Formal components use symbolic parameters. Numbers in tests are arithmetic illustrations and are labelled as such.
 7. **Parental care is not romantic reciprocity.** Contributions must keep the asymmetry explicit.
+8. **The equations are frozen at v0.2.0.** Propose a change to equations (1)–(10) only to fix a substantive error, never for completeness. Write predictions and designs as restrictions on their parameters. The evidence, grades and wording around the equations can change, with an entry in [`CORRECTIONS.md`](CORRECTIONS.md) that names the primary source and how deeply it was checked.
 
 ## Workflow
 

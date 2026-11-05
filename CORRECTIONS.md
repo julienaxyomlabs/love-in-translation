@@ -4,6 +4,16 @@ Changes that correct or narrow what an earlier version claimed. Each entry quote
 
 The research notes in [`evidence/notes/`](evidence/notes/) are the record of the literature review and are preserved unchanged. Where they contain a statement superseded here, the entry says where.
 
+## v0.3.0 (2026-11-05): audit findings, not yet applied
+
+No paper text changed in this version. An audit compared 24 of the paper's most consequential empirical claims with their primary sources ([`audit/`](audit/README.md)). Its results:
+
+- **Re-grades.** Eight findings are re-graded ([Table A2](audit/corrections.md#tier-3-instrument-tables-design-text-bibliography-and-corrections-log)). Among them, invisible support is re-graded from "Moderate to Established" to *Mixed*, because a larger replication by the same group did not reproduce it.
+- **Recommended text changes.** There are 75, listed in [`audit/corrections.md`](audit/corrections.md) with the primary source and verification depth for each.
+- **The equations.** None needs changing.
+
+When the corrections are applied, each will be logged here with its earlier wording, the correction, the affected files and how deeply the source was checked. Until then, the statement under v0.2.0 that no empirical finding was re-graded describes v0.2.0 only.
+
 ## v0.2.0 (2026-11-04)
 
 Prompted by an external review of v0.1.0. No empirical finding was re-graded and no study result was reinterpreted.

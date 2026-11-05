@@ -1,4 +1,4 @@
-"""Repository integrity: Markdown lint, claims-ledger freshness and CLI smoke tests."""
+"""Repository integrity: Markdown lint, ledger freshness and CLI smoke tests."""
 
 import contextlib
 import io
@@ -6,6 +6,7 @@ import json
 import unittest
 
 import _paths  # noqa: F401
+import build_audit_ledger
 import extract_claims
 import lint_markdown
 from love_translation import cli
@@ -26,6 +27,18 @@ class Repository(unittest.TestCase):
         self.assertGreater(len(rows), 100)
         self.assertTrue(all(r["grade"] in grades for r in rows))
         self.assertEqual(len({r["id"] for r in rows}), len(rows))
+
+    def test_audit_ledger_is_fresh(self):
+        expected = build_audit_ledger.serialise(build_audit_ledger.collect())
+        current = build_audit_ledger.LEDGER.read_text(encoding="utf-8")
+        self.assertEqual(current, expected, "run `make audit` after editing an audit note")
+
+    def test_audit_covers_twenty_claims_and_four_supplements(self):
+        records = build_audit_ledger.collect()
+        ids = [str(r["claim_id"]) for r in records]
+        self.assertEqual(ids, [f"C{n:02d}" for n in range(1, 21)] + [f"S{n}" for n in range(1, 5)])
+        depths = {"full text", "abstract", "secondary", "inaccessible"}
+        self.assertTrue(all(r["verification_depth"] in depths for r in records))
 
 
 class CommandLine(unittest.TestCase):

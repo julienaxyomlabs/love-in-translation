@@ -2,12 +2,12 @@
 PY ?= python3
 
 .DEFAULT_GOAL := help
-.PHONY: help check test lint claims check-claims dois bibtex paper demo clean
+.PHONY: help check test lint claims check-claims audit check-audit dois bibtex paper demo clean
 
 help: ## List targets
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*## "}; {printf "  %-14s %s\n", $$1, $$2}'
 
-check: lint check-claims test ## Everything CI runs offline
+check: lint check-claims check-audit test ## Everything CI runs offline
 
 test: ## Unit and repository tests (stdlib only)
 	$(PY) -m unittest discover -s tests -t tests -v
@@ -21,6 +21,13 @@ claims: ## Regenerate evidence/claims.jsonl from the paper
 
 check-claims: ## Fail if the evidence ledger is stale
 	$(PY) tools/extract_claims.py --check
+
+audit: ## Regenerate audit/claims-audit.csv from the audit notes
+	$(PY) tools/build_audit_ledger.py --write
+	$(PY) tools/build_audit_ledger.py --stats
+
+check-audit: ## Fail if the claim-audit ledger is stale
+	$(PY) tools/build_audit_ledger.py --check
 
 dois: ## Resolve every DOI against Crossref (network)
 	$(PY) tools/check_dois.py --write evidence/doi-verification.csv

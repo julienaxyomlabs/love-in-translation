@@ -7,6 +7,7 @@
 ![runtime deps](https://img.shields.io/badge/runtime%20deps-0-2ea44f)
 ![DOIs](https://img.shields.io/badge/DOIs%20resolved-375%2F375-2ea44f)
 ![claims](https://img.shields.io/badge/graded%20claims-280-1f6feb)
+![audit](https://img.shields.io/badge/claims%20audited-24-1f6feb)
 ![empirical validation](https://img.shields.io/badge/empirical%20validation-none%20yet-lightgrey)
 ![code license](https://img.shields.io/badge/code-MIT-blue)
 ![content license](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey)
@@ -26,9 +27,13 @@ where translation wins  invisible or ambiguous care · culturally variable
 not translation at all  incompatible goals · unsustainable demands · coercion
 ```
 
+> [!NOTE]
+> **Audit notice (v0.3.0).** A primary-source audit of the claims this verdict and the model lean on most ([`audit/`](audit/README.md)) found no fabricated citation and no error in the equations. But four claims are overstated as used, and one sign is reversed: for judgments of a partner's love, the bias is slightly negative (r = −.11), not positive. Four of the five verdict rows below need rewording. The evidence cited against "translation, not amount" does not test that comparison, so it is open rather than settled. The recommended corrections are in [`audit/corrections.md`](audit/corrections.md) and are **not yet applied**: the paper text is still v0.2.0.
+
 ## Contents
 
 - [Verdict by clause](#verdict-by-clause)
+- [Evidence audit and study protocol](#evidence-audit-and-study-protocol)
 - [Repository layout](#repository-layout)
 - [Quickstart](#quickstart)
 - [Model at a glance](#model-at-a-glance)
@@ -51,6 +56,31 @@ not translation at all  incompatible goals · unsustainable demands · coercion
 
 Full reasoning: [`paper/01-question-and-thesis.md`](paper/01-question-and-thesis.md). Closing answer to *is love enough?*: [`paper/19b-is-love-enough.md`](paper/19b-is-love-enough.md).
 
+## Evidence audit and study protocol
+
+v0.3.0 asks which parts of the theory can be told apart from simpler explanations using data. The framework itself stays frozen at v0.2.0.
+
+- **[Part A: evidence audit](audit/evidence-audit.md).** The 20 claims that the verdict and the model lean on most, plus four supplementary claims, compared with their primary sources:
+  - 12 were read in full text, 10 from abstracts only and 2 from press or blog accounts;
+  - no citation is fabricated, and every quoted coefficient matched its source wherever the source could be read;
+  - of the 20, one is supported as used, fifteen hold only with qualifications, and four are overstated: invisible support as proof of a route that bypasses perception (C04), over-provision as worse than under-provision (C06), stress "blocking" enactment (C14) and love rising as safety falls (C19);
+  - one sign is reversed (C09).
+
+  Ledger: [`audit/claims-audit.csv`](audit/claims-audit.csv).
+- **[Part B: competing predictions](protocol/competing-predictions.md).**
+  - These can be separated from the four rivals with realistic designs: detection, construal, inference of regard from cost, and channel match against intensity.
+  - The split between the substantive and symbolic routes cannot be identified by randomisation.
+  - At the level of outcomes, the symbolic route is indistinguishable from "perceived support alone".
+- **[Part C: study protocol](protocol/study-protocol.md).** A dyadic longitudinal design for a Korean case study:
+  - a measurement phase comes first;
+  - then daily diaries in bursts over a year, a micro-randomised trial of care prompts and a vignette experiment;
+  - safety works as a gate and autonomy is a separate outcome.
+
+  **Design only: no data have been collected and no one has been recruited.**
+- **[Corrections](audit/corrections.md).** 75 recommended text changes, not yet applied. The equations need none.
+
+Overview and contents: [`audit/README.md`](audit/README.md).
+
 ## Repository layout
 
 ```text
@@ -59,14 +89,16 @@ Full reasoning: [`paper/01-question-and-thesis.md`](paper/01-question-and-thesis
 │   ├── README.md           table of contents
 │   ├── 00-summary.md … 20-bibliography.md
 │   └── figures/            model.svg (Figure 1) · model-mermaid.md (editable source)
+├── audit/                  primary-source audit of 24 claims (Part A), its ledger, the corrections it implies
+├── protocol/               competing predictions (Part B) and study protocol (Part C); design only
 ├── src/love_translation/   stdlib-only reference implementation of the formal model
-├── tests/                  43 tests: the code reproduces §8's formal claims and published RSA examples
+├── tests/                  45 tests: the code reproduces §8's formal claims and published RSA examples
 ├── evidence/
 │   ├── claims.jsonl        280 graded claims extracted from the paper (generated)
 │   ├── references.bib      BibTeX for every cited DOI (generated)
 │   ├── doi-verification.csv  Crossref resolution of every DOI (generated)
-│   └── notes/              seven structured literature reviews behind the paper
-├── tools/                  ledger extraction · markdown lint · DOI check · BibTeX · paper build
+│   └── notes/              literature reviews (01–07) and audit notes (08–12)
+├── tools/                  claim and audit ledgers · markdown lint · DOI check · BibTeX · paper build
 ├── docs/
 │   ├── research-brief.md   the brief that defined the project
 │   └── adr/                architecture decision records for the modelling choices
@@ -79,7 +111,7 @@ Full reasoning: [`paper/01-question-and-thesis.md`](paper/01-question-and-thesis
 ```bash
 git clone https://github.com/julienaxyomlabs/love-in-translation.git
 cd love-in-translation
-make check          # markdown lint + ledger freshness + 43 tests; offline, stdlib only
+make check          # markdown lint + both ledgers fresh + 45 tests; offline, stdlib only
 pip install -e .    # optional: installs the `love-translation` CLI
 make paper          # single-file build -> dist/paper.md
 make dois           # re-resolve every DOI against Crossref (network)
@@ -115,6 +147,8 @@ Canonical version with derivations: [chapter 8](paper/08-mathematical-representa
 ### What each equation says, and how well it is supported
 
 The columns keep three things apart: the statistical method (is the tool standard?), the psychological evidence (is the mechanism observed?), and what is original to this project (untested).
+
+*Audit (v0.3.0): the psychological-evidence column overstates components 1, 5, 6 and 10. For component 3 it gives the wrong sign of bias for judgments of love. See [Tier 1 of the corrections](audit/corrections.md#tier-1-corrections-that-change-a-verdict-or-a-model-components-evidence).*
 
 | # | In words | Statistical method | Psychological evidence | Original to this project | Details |
 |---|---|---|---|---|---|
@@ -251,10 +285,11 @@ Field definitions and provenance for every generated file: [`evidence/README.md`
 
 | Check | What it shows | What it does **not** show |
 |---|---|---|
-| 43 unit tests (`make test`) | The code implements the stated equations; mathematical identities hold (cosine scale invariance, the 1-versus-3 equilibrium cases, $`e^*=r/\lambda`$, no finite safety weight excludes unsafe options); the RSA code reproduces published worked examples (Edwards 2007; Schönbrodt, Humberg & Nestler 2018) | That any psychological mechanism in the model is true. **Passing tests is not empirical validation.** |
+| 45 tests (`make test`) | The code implements the stated equations; mathematical identities hold (cosine scale invariance, the 1-versus-3 equilibrium cases, $`e^*=r/\lambda`$, no finite safety weight excludes unsafe options); the RSA code reproduces published worked examples (Edwards 2007; Schönbrodt, Humberg & Nestler 2018) | That any psychological mechanism in the model is true. **Passing tests is not empirical validation.** |
 | DOI resolution (`make dois`) | All 375 DOIs resolve and their registered titles and authors match the references; the 22 non-DOI sources are direct URLs | That each study supports the claim attributed to it. Many findings were checked against abstracts only; the depth for each source is tagged in [`evidence/notes/`](evidence/notes/) |
 | Evidence grades | Every claim carries one of six grades; the paper's own propositions are tagged *Our hypothesis* | That the grading is beyond dispute. Challenge it with the issue form |
-| Empirical test of the model | None has been run | Anything about the model's validity. Chapter 18 proposes the study that could |
+| Primary-source audit, v0.3.0 ([`audit/`](audit/README.md)) | For 24 consequential claims, the source was compared with the use: what was measured, design, population, limitations, whether the source supports the use. 12 were read in full text, 10 from abstracts, 2 from press or blog accounts | That the paper's other claims are right. The audit is not exhaustive: seven anchor citations were not examined. Eight of the twenty audited claims still rest on abstracts or press accounts |
+| Empirical test of the model | None has been run. [`protocol/study-protocol.md`](protocol/study-protocol.md) designs one; it is not preregistered and has no ethics review | Anything about the model's validity. No data have been collected |
 
 - **No manufactured precision.** No equation here is a validated psychological law, and nothing estimates a coefficient from data.
 - **Not a diagnostic tool.** Nothing in this repository assesses a real relationship or family. Population statistics never describe individuals.

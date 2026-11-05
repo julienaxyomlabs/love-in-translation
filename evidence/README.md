@@ -7,7 +7,7 @@ Machine-readable evidence behind the paper. Generated files are rebuilt from `pa
 | `claims.jsonl` | `make claims` (`tools/extract_claims.py`) | no | every graded claim in the paper |
 | `doi-verification.csv` | `make dois` (`tools/check_dois.py`) | yes | Crossref resolution of every cited DOI |
 | `references.bib` | `make bibtex` (`tools/build_bibtex.py`) | yes | BibTeX for every cited DOI |
-| `notes/` | — (source material) | — | the seven structured literature reviews |
+| `notes/` | — (source material) | — | the seven literature reviews (01–07) and the five audit-phase notes (08–12) |
 
 ## `claims.jsonl`
 
@@ -54,3 +54,17 @@ Structured reviews written before the paper, one per subtopic, each organised as
 | `05-family-and-culture.md` | parent–child care across cultures, provision, filial piety, social change |
 | `06-korea-case-study.md` | Korean statistics and studies, with international comparisons |
 | `07-formal-models-and-methods.md` | formalisms, identifiability, dyadic and longitudinal methods |
+
+### Audit-phase notes (November 2026)
+
+Notes 08–12 were written for the evidence audit and study protocol in [`audit/`](../audit/) and [`protocol/`](../protocol/). Notes 08–11 each audit a group of claims against their primary sources and end with a `jsonl` block, one record per claim. [`tools/build_audit_ledger.py`](../tools/build_audit_ledger.py) collects those records into [`audit/claims-audit.csv`](../audit/claims-audit.csv) (`make audit`).
+
+| Note | Scope |
+|---|---|
+| `08-audit-transmission-support.md` | C01–C05: responsiveness, support detection, received vs perceived support, invisible support |
+| `09-audit-perception-prediction.md` | C06–C10: support matching, projection, truth and bias, prediction of relationship outcomes |
+| `10-audit-amount-direction-capacity.md` | C11–C15: amount of love and commitment, direction of effects, capacity and stress |
+| `11-audit-culture-provision-safety.md` | C16–C20 and S1–S4: culture, provision, parental control, coercion and safety |
+| `12-protocol-methods.md` | measures and their Korean validations, diary design, power analysis, identification, ethics and Korean law |
+
+The notes are copied unchanged except for local file paths. Links into the repository were pinned to the [`v0.2.0` tag](https://github.com/julienaxyomlabs/love-in-translation/tree/v0.2.0), the version audited, so every `file:line` reference in them points at the text the auditors read. Paths beginning `working-files/` name the auditors' local extraction folders (full texts, API responses). They are not published, because they hold copies of copyrighted articles.
